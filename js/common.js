@@ -38,3 +38,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+
+  // 탭 클릭 → 섹션 스크롤 + 탭 활성화
+  function scrollTo(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const offset = document.querySelector('.tab-nav').offsetHeight + 16;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+
+  // 스크롤 시 탭 자동 활성화
+  const sections = ['cc-single', 'cct-pro', 'acrobat', 'substance'];
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const navH = () => document.querySelector('.tab-nav').offsetHeight + 32;
+
+  window.addEventListener('scroll', () => {
+    let current = sections[0];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= navH()) current = id;
+    });
+    tabBtns.forEach((btn, i) => {
+      btn.classList.toggle('active', sections[i] === current);
+    });
+  }, { passive: true });
