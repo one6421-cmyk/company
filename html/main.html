@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud Net Korea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#1a5fbf;--navy:#0d2e6e;--accent:#2176d9;--gray-bg:#f5f7fa;--gray-line:#e0e4ea;--text:#222;--muted:#666}
+body{font-family:'Noto Sans KR',sans-serif;color:var(--text);background:#fff;font-size:15px;overflow-x:hidden}
+
+/* GNB */
+header{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--gray-line);box-shadow:0 2px 6px rgba(0,0,0,.06)}
+.gnb{max-width:1200px;margin:0 auto;display:flex;align-items:center;height:62px;padding:0 24px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--navy);font-weight:900;font-size:17px;margin-right:40px}
+.logo-box{width:34px;height:34px;background:linear-gradient(135deg,var(--blue),var(--accent));border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:900}
+nav{display:flex;flex:1}
+nav a{padding:0 18px;height:62px;display:flex;align-items:center;text-decoration:none;color:var(--text);font-size:14px;font-weight:500;border-bottom:3px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
+nav a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+.gnb-cta{margin-left:auto;background:var(--blue);color:#fff;border:none;border-radius:5px;height:36px;padding:0 18px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;display:flex;align-items:center;transition:background .2s}
+.gnb-cta:hover{background:var(--navy)}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;height:480px}
+.slides{display:flex;width:300%;height:100%;transition:transform .65s cubic-bezier(.4,0,.2,1)}
+.slide{width:33.333%;height:100%;display:flex;align-items:center;padding:0 80px;flex-shrink:0}
+.slide-1{background:linear-gradient(110deg,#071a3e 0%,#0d2e6e 55%,#1a4a9e 100%)}
+.slide-2{background:linear-gradient(110deg,#0a2a1e 0%,#0d4a30 55%,#1a6a4a 100%)}
+.slide-3{background:linear-gradient(110deg,#180a2e 0%,#2e0d5e 55%,#4a1a8e 100%)}
+.slide-content{color:#fff;max-width:600px}
+.slide-label{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.65;margin-bottom:18px;text-transform:uppercase}
+.slide-content h2{font-size:clamp(22px,3vw,36px);font-weight:900;line-height:1.35}
+.hero-dots{position:absolute;bottom:28px;left:80px;display:flex;gap:8px}
+.hero-dots button{width:28px;height:4px;border:none;border-radius:2px;background:rgba(255,255,255,.3);cursor:pointer;padding:0;transition:background .2s,width .25s}
+.hero-dots button.on{background:#fff;width:42px}
+.hero-arrows{position:absolute;bottom:18px;right:40px;display:flex;gap:8px}
+.hero-arrows button{width:36px;height:36px;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.1);color:#fff;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:background .2s;backdrop-filter:blur(4px)}
+.hero-arrows button:hover{background:rgba(255,255,255,.25)}
+
+/* SECTION COMMONS */
+.sec-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.sec-label{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.1em;margin-bottom:8px;text-transform:uppercase}
+.sec-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px}
+.sec-top h2{font-size:24px;font-weight:900}
+
+/* "더보기" 버튼 두 스타일 */
+.more-btn-dark{display:flex;align-items:center;gap:6px;background:#222;color:#fff;border:none;border-radius:5px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:background .2s}
+.more-btn-dark:hover{background:#000}
+.more-btn-dark .plus{width:20px;height:20px;background:#fff;color:#222;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;line-height:1}
+.more-btn-outline{background:#fff;color:var(--navy);border:1px solid var(--navy);border-radius:4px;padding:7px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:background .15s,color .15s}
+.more-btn-outline:hover{background:var(--navy);color:#fff}
+
+/* NEWS CAROUSEL */
+.news-sec{background:var(--gray-bg);padding:64px 0}
+.c-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px}
+.c-head-r{display:flex;align-items:center;gap:10px}
+.c-btns{display:flex;gap:4px}
+.c-btns button{width:36px;height:36px;border:1px solid #ccc;background:#fff;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;color:#555;transition:border-color .2s,color .2s,opacity .2s}
+.c-btns button:hover{border-color:var(--navy);color:var(--navy)}
+.c-wrap{overflow:hidden}
+.c-track{display:flex;gap:22px;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.ncard{min-width:calc((100% - 44px)/3);background:#fff;border-radius:10px;overflow:hidden;border:1px solid var(--gray-line);transition:box-shadow .2s,transform .2s;cursor:pointer;flex-shrink:0}
+.ncard:hover{box-shadow:0 10px 32px rgba(0,0,0,.12);transform:translateY(-3px)}
+/* 썸네일: 이미지처럼 꽉차게 */
+.nthumb{width:100%;height:188px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff}
+.nthumb-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.nthumb-logo{position:absolute;top:10px;right:12px;background:rgba(255,255,255,.15);backdrop-filter:blur(4px);border-radius:4px;padding:3px 8px;font-size:10px;font-weight:700;color:#fff}
+.nthumb-title{position:absolute;bottom:0;left:0;right:0;padding:12px 14px;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 100%);font-size:15px;font-weight:900;line-height:1.3}
+/* 카드 썸네일 색상 */
+.nt-blue{background:linear-gradient(135deg,#1a237e,#1565c0)}
+.nt-green{background:linear-gradient(135deg,#0a3d1e,#1b5e20)}
+.nt-dark{background:linear-gradient(135deg,#111,#333)}
+.nt-teal{background:linear-gradient(135deg,#004d40,#00695c)}
+.nt-purple{background:linear-gradient(135deg,#1a0050,#4a148c)}
+.nbody{padding:16px 16px 20px}
+.nbody p{font-size:12.5px;color:var(--muted);line-height:1.7;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ndate{margin-top:12px;font-size:11px;color:#bbb;display:flex;align-items:center;gap:5px}
+.ndate::before{content:'📅';font-size:10px}
+
+/* EVENT BOARD */
+.event-sec{padding:64px 0;background:#fff}
+.board{width:100%;border-collapse:collapse;border-top:2px solid var(--navy)}
+.board thead th{padding:14px 16px;font-size:13px;font-weight:700;color:#fff;background:var(--navy);text-align:left}
+.board thead th:first-child{width:64px;text-align:center}
+.board thead th:last-child{width:130px;text-align:center}
+.board tbody tr{border-bottom:1px solid var(--gray-line);transition:background .15s;cursor:pointer}
+.board tbody tr:hover{background:#f0f4ff}
+.board tbody td{padding:15px 16px;font-size:13.5px}
+.board tbody td:first-child{text-align:center;color:#999;font-size:12px}
+.board tbody td:last-child{text-align:center;font-size:12px;color:#999}
+.badge{display:inline-block;border-radius:3px;font-size:10px;font-weight:700;padding:2px 7px;margin-right:7px;color:#fff;vertical-align:middle}
+.badge.ing{background:var(--blue)}
+.badge.new{background:#e53935}
+
+/* CONTACT — dark bg + white form card */
+.contact-sec{position:relative;min-height:700px;display:flex;align-items:stretch;overflow:hidden}
+.contact-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,#0d2a4e 0%,#050e1f 60%,#000 100%)}
+/* mesh lines decoration */
+.contact-bg::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cellipse cx='300' cy='300' rx='280' ry='220' fill='none' stroke='rgba(30,100,200,0.18)' stroke-width='1'/%3E%3Cellipse cx='300' cy='300' rx='200' ry='160' fill='none' stroke='rgba(30,100,200,0.12)' stroke-width='1'/%3E%3Cellipse cx='300' cy='300' rx='120' ry='90' fill='none' stroke='rgba(30,100,200,0.08)' stroke-width='1'/%3E%3C/svg%3E") left center/cover no-repeat}
+.contact-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;padding:72px 24px;gap:64px;width:100%;position:relative;z-index:1}
+.c-left{flex:1;color:#fff;min-width:0}
+.c-left .sub{font-size:11px;font-weight:700;letter-spacing:.14em;opacity:.6;margin-bottom:18px;text-transform:uppercase}
+.c-left h2{font-size:32px;font-weight:900;line-height:1.4;margin-bottom:0}
+.c-card{background:#fff;border-radius:12px;width:480px;flex-shrink:0;padding:0;box-shadow:0 20px 60px rgba(0,0,0,.4);overflow:hidden}
+.c-card-head{padding:28px 36px 20px;text-align:center;border-bottom:1px solid var(--gray-line)}
+.c-card-head h3{font-size:18px;font-weight:900;margin-bottom:6px}
+.c-card-head p{font-size:12.5px;color:var(--muted);line-height:1.7}
+.c-card-body{padding:24px 36px 28px;display:flex;flex-direction:column;gap:16px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fg label{font-size:12px;font-weight:700;color:#333}
+.fg label span{color:#e53935}
+.fg input,.fg select,.fg textarea{border:1px solid var(--gray-line);border-radius:6px;padding:10px 12px;font-size:13px;font-family:inherit;color:var(--text);outline:none;transition:border-color .2s;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,95,191,.08)}
+.fg textarea{resize:vertical;min-height:88px}
+/* phone row */
+.phone-row{display:flex;gap:8px}
+.phone-prefix{width:90px;flex-shrink:0}
+/* checkboxes */
+.cb-list{display:flex;flex-direction:column;gap:8px}
+.cb-item{display:flex;align-items:center;gap:8px;font-size:13px;color:#333;cursor:pointer}
+.cb-item input[type=checkbox]{width:15px;height:15px;accent-color:var(--blue);cursor:pointer}
+.fchk{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted)}
+.fchk a{color:var(--blue)}
+.sub-btn{background:var(--blue);color:#fff;border:none;border-radius:7px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s;width:100%}
+.sub-btn:hover{background:var(--navy)}
+
+/* FOOTER */
+footer{background:#1d1d1d;color:rgba(255,255,255,.5);padding:36px 24px 24px;font-size:12px;line-height:1.9}
+.ft-in{max-width:1200px;margin:0 auto}
+.ft-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.ft-logo{font-size:18px;font-weight:900;color:#fff}
+.ft-icons{display:flex;gap:8px}
+.ft-icon{width:34px;height:34px;background:rgba(255,255,255,.1);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:13px;font-weight:900;transition:background .15s}
+.ft-icon:hover{background:var(--blue)}
+.ft-links{display:flex;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.ft-links a{color:rgba(255,255,255,.6);text-decoration:none;font-weight:500}
+.ft-links a:hover{color:#fff}
+.ft-links a.hl{color:#64b5f6}
+.ft-hr{border:none;border-top:1px solid rgba(255,255,255,.08);margin:14px 0}
+
+/* QUICK MENU */
+.quick{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:300;display:flex;flex-direction:column;gap:2px}
+.qitem{background:var(--navy);color:#fff;width:56px;padding:11px 6px;font-size:10px;font-weight:700;text-align:center;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:5px;transition:background .2s;border-left:3px solid transparent;line-height:1.3}
+.qitem:hover{background:var(--blue);border-left-color:rgba(255,255,255,.5)}
+.qitem:first-child{border-radius:8px 0 0 0}
+.qitem:last-child{border-radius:0 0 0 8px}
+.qi{font-size:17px}
+</style>
+</head>
+<body>
+
+<!-- GNB -->
+<header>
+  <div class="gnb">
+    <a href="#" class="logo"><div class="logo-box">CN</div>Cloud Net</a>
+    <nav>
+      <a href="#">회사 소개</a>
+      <a href="#">소프트웨어</a>
+      <a href="#">솔루션</a>
+      <a href="#">외산소프트</a>
+      <a href="#">고객 지원</a>
+    </nav>
+    <a href="#contact" class="gnb-cta">상담신청</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="slides" id="slides">
+    <div class="slide slide-1">
+      <div class="slide-content">
+        <div class="slide-label">One Channel, Total IT Solution</div>
+        <h2>복잡하고 흩어진 IT 견적을<br>하나의 채널에서 효율적으로 관리하세요</h2>
+      </div>
+    </div>
+    <div class="slide slide-2">
+      <div class="slide-content">
+        <div class="slide-label">Trusted IT Business Partner</div>
+        <h2>클라우드넷코리아는 합리적인<br>IT 솔루션과 안정적인 사후 지원을 제공합니다</h2>
+      </div>
+    </div>
+    <div class="slide slide-3">
+      <div class="slide-content">
+        <div class="slide-label">Smarter IT, Better Business</div>
+        <h2>기업 환경에 최적화된 IT기술과<br>솔루션을 제공하는 비즈니스 파트너</h2>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <button class="on" onclick="goSlide(0)"></button>
+    <button onclick="goSlide(1)"></button>
+    <button onclick="goSlide(2)"></button>
+  </div>
+  <div class="hero-arrows">
+    <button onclick="prevSlide()">&#8592;</button>
+    <button onclick="nextSlide()">&#8594;</button>
+  </div>
+</div>
+
+<!-- NEWS CAROUSEL -->
+<section class="news-sec">
+  <div class="sec-wrap">
+    <div class="c-head">
+      <div>
+        <div class="sec-label">21C SOFT Notice</div>
+        <h2 style="font-size:26px;font-weight:900">새로운 소식</h2>
+      </div>
+      <div class="c-head-r">
+        <div class="c-btns">
+          <button id="cPrev" onclick="cMove(-1)">&#8592;</button>
+          <button id="cNext" onclick="cMove(1)">&#8594;</button>
+        </div>
+        <a href="#" class="more-btn-dark">더보기 <span class="plus">+</span></a>
+      </div>
+    </div>
+    <div class="c-wrap">
+      <div class="c-track" id="cTrack">
+        <!-- Card 1 -->
+        <div class="ncard">
+          <div class="nthumb nt-blue">
+            <div class="nthumb-inner">
+              <div style="font-size:11px;font-weight:700;opacity:.7;letter-spacing:.05em">Microsoft Business Standard</div>
+              <div style="font-size:20px;font-weight:900">그래서 왜 쓰는 건데?</div>
+            </div>
+            <div class="nthumb-logo">21C SOFT</div>
+          </div>
+          <div class="nbody">
+            <p>기업 업무 효율을 높이는 Microsoft 365 Business Standard는 문서 작성, 이메일, 일정 관리, 파일 공유, 화상회의 등 기업 업무에 필요한 기본...</p>
+            <div class="ndate">2026-05-07</div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="ncard">
+          <div class="nthumb nt-green">
+            <div class="nthumb-inner">
+              <div style="font-size:22px;font-weight:900;text-align:center;line-height:1.3">Good Bye 2025,<br>Welcome 2026!<br><span style="color:#ffd54f">Happy New Year!</span></div>
+            </div>
+            <div class="nthumb-logo">21C SOFT</div>
+          </div>
+          <div class="nbody">
+            <p>안녕하세요, 이십일세기소프트입니다. 2025년도 어느덧 이틀밖에 남지 않았습니다. 올 한 해 동안 이십일세기소프트와...</p>
+            <div class="ndate">2025-12-30</div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="ncard">
+          <div class="nthumb nt-dark">
+            <div class="nthumb-inner">
+              <div style="font-size:11px;opacity:.7;margin-bottom:4px">이 십 일 세 기 소 프 트</div>
+              <div style="font-size:15px;font-weight:900;color:#ffd54f;text-align:center;line-height:1.4">기존 고객 한정<br>데스크키트 3종 세트 제공!</div>
+            </div>
+            <div class="nthumb-logo">21C SOFT</div>
+          </div>
+          <div class="nbody">
+            <p>안녕하세요, 이십일세기소프트입니다. 연말을 맞아 이십일세기소프트와 함께 거래해 주시는 소중한 고객분들을...</p>
+            <div class="ndate">2025-11-19</div>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="ncard">
+          <div class="nthumb nt-teal">
+            <div class="nthumb-inner">
+              <div style="font-size:36px;margin-bottom:6px">🎮</div>
+              <div style="font-size:16px;font-weight:900">2026 Unity 구독 안내</div>
+            </div>
+            <div class="nthumb-logo">Unity</div>
+          </div>
+          <div class="nbody">
+            <p>안녕하세요. Unity 전문 기업 이십일세기소프트입니다. 2026 Unity 구독 플랜 및 가격 변경사...</p>
+            <div class="ndate">2025-11-18</div>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="ncard">
+          <div class="nthumb nt-purple">
+            <div class="nthumb-inner">
+              <div style="font-size:36px;margin-bottom:6px">📦</div>
+              <div style="font-size:16px;font-weight:900;text-align:center">Dropbox 기업 데이터<br>삭제 사고 대비</div>
+            </div>
+            <div class="nthumb-logo">21C SOFT</div>
+          </div>
+          <div class="nbody">
+            <p>기업의 중요한 데이터를 안전하게 보호하고 데이터 삭제 사고에 대비하는 방법을 소개합니다.</p>
+            <div class="ndate">2026-05-07</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENT BOARD -->
+<section class="event-sec">
+  <div class="sec-wrap">
+    <div class="sec-top">
+      <div>
+        <div class="sec-label">PROMOTION</div>
+        <h2>진행중인 이벤트</h2>
+      </div>
+      <a href="#" class="more-btn-outline">더보기</a>
+    </div>
+    <table class="board">
+      <thead><tr><th>번호</th><th>제목</th><th>등록일</th></tr></thead>
+      <tbody>
+        <tr><td>5</td><td><span class="badge new">NEW</span>지바 버전 SketchUp 신규 고객 10% 할인 이벤트 안내</td><td>2026-05-20</td></tr>
+        <tr><td>4</td><td><span class="badge ing">진행중</span>KICK-OFF 2025! Chaos Collection 15% 할인 안내</td><td>2026-04-01</td></tr>
+        <tr><td>3</td><td><span class="badge ing">진행중</span>HANCOM SMB 우수 파트너 선정 기념 프로모션</td><td>2026-03-15</td></tr>
+        <tr><td>2</td><td>Adobe Creative Cloud 기업용 라이선스 특가 할인</td><td>2026-02-10</td></tr>
+        <tr><td>1</td><td>Microsoft 365 Business 신규 도입 기업 무료 컨설팅 제공</td><td>2026-01-05</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact" class="contact-sec">
+  <div class="contact-bg"></div>
+  <div class="contact-inner">
+    <div class="c-left">
+      <div class="sub">21C SOFT Contact</div>
+      <h2>고객 기업 환경에 알맞는<br>맞춤형 솔루션을<br>제시합니다.</h2>
+    </div>
+    <div class="c-card">
+      <div class="c-card-head">
+        <h3>1:1 문의</h3>
+        <p>간편하게 문의하세요<br>전문 컨설턴트가 빠르게 답변해 드리겠습니다.</p>
+      </div>
+      <div class="c-card-body">
+        <div class="fg"><label>성명 <span>*</span></label><input type="text" placeholder=""></div>
+        <div class="fg"><label>상호 <span>*</span></label><input type="text" placeholder="회사명 또는 사업자번호(번호만) 검색"></div>
+        <div class="fg">
+          <label>연락처 <span>*</span></label>
+          <div class="phone-row">
+            <select class="phone-prefix"><option>KR +82</option><option>US +1</option><option>JP +81</option></select>
+            <input type="tel" placeholder="전화번호 입력" style="flex:1">
+          </div>
+        </div>
+        <div class="fg"><label>이메일 주소 <span>*</span></label><input type="email" placeholder=""></div>
+        <div class="fg">
+          <label>문의 카테고리를 선택해주세요 (복수 선택 가능) <span>*</span></label>
+          <div class="cb-list">
+            <label class="cb-item"><input type="checkbox"> 소프트웨어/솔루션 문의</label>
+            <label class="cb-item"><input type="checkbox"> 기술지원 요청</label>
+            <label class="cb-item"><input type="checkbox"> 교육 신청 (세미나, 웨비나, 온사이트)</label>
+            <label class="cb-item"><input type="checkbox"> 기타 (제협단 신청, 사업 제휴)</label>
+          </div>
+        </div>
+        <div class="fg"><label>추가 문의 내용</label><textarea placeholder=""></textarea></div>
+        <div class="fchk">
+          <input type="checkbox" id="agree">
+          <label for="agree"><a href="#">개인정보처리방침</a> 동의 <span style="color:#e53935">*</span></label>
+        </div>
+        <button class="sub-btn">문의하기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-in">
+    <div class="ft-top">
+      <div class="ft-logo">21C SOFT</div>
+      <div class="ft-icons">
+        <a href="#" class="ft-icon" title="네이버 블로그">N</a>
+        <a href="#" class="ft-icon" title="카카오톡 채널">K</a>
+        <a href="#" class="ft-icon" title="쇼핑몰">🛒</a>
+      </div>
+    </div>
+    <div class="ft-links">
+      <a href="#">신용카드 공개가격</a>
+      <a href="#" class="hl">개인정보처리방침</a>
+      <a href="#">이메일무수신거부</a>
+    </div>
+    <hr class="ft-hr">
+    <p>사업자등록번호: 106-81-79051 &nbsp;|&nbsp; 대표이사: 이성주 &nbsp;|&nbsp; 통신판매업신고번호: 제19-47865호</p>
+    <p>서울시 영등포구 신의문1146 (당왕동3가, 이어빌딩 814호 141호) &nbsp;|&nbsp; 전화: 02-2629-7700 &nbsp;|&nbsp; 팩스: 02-2629-7799</p>
+    <p style="margin-top:8px">ⓒ 21ST CENTURYSOFT. ALL RIGHT RESERVED.</p>
+  </div>
+</footer>
+
+<!-- QUICK MENU -->
+<div class="quick">
+  <a href="#contact" class="qitem"><span class="qi">📋</span>제품문의</a>
+  <a href="#" class="qitem"><span class="qi">💬</span>카톡상담</a>
+  <a href="#" class="qitem"><span class="qi">🟢</span>네이버상담</a>
+  <a href="#contact" class="qitem"><span class="qi">✉</span>1:1문의</a>
+</div>
+
+<script>
+// Hero slider
+let cur=0,tot=3,auto;
+function goSlide(n){cur=n;document.getElementById('slides').style.transform='translateX(-'+cur*33.333+'%)';document.querySelectorAll('.hero-dots button').forEach((b,i)=>b.classList.toggle('on',i===cur));resetAuto();}
+function nextSlide(){goSlide((cur+1)%tot);}
+function prevSlide(){goSlide((cur-1+tot)%tot);}
+function resetAuto(){clearInterval(auto);auto=setInterval(nextSlide,5000);}
+resetAuto();
+
+// News carousel
+let ci=0;
+function cMove(d){
+  const track=document.getElementById('cTrack');
+  const cards=track.querySelectorAll('.ncard');
+  const max=cards.length-3;
+  ci=Math.max(0,Math.min(ci+d,max));
+  const w=track.parentElement.offsetWidth;
+  const step=(w-44)/3+22;
+  track.style.transform='translateX(-'+(ci*step)+'px)';
+  document.getElementById('cPrev').style.opacity=ci===0?'.3':'1';
+  document.getElementById('cNext').style.opacity=ci>=max?'.3':'1';
+}
+cMove(0);
+window.addEventListener('resize',()=>cMove(0));
+</script>
+</body>
+</html>

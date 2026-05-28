@@ -1,486 +1,690 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="../css/adobe.css">
-      <script src="../js/common.js"></script>
-    <title>Adobe</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/adobe.css">
+  <script src="../js/common.js"></script>
+  <title>Adobe</title>
 </head>
+
 <body>
-    <!-- ── STICKY TAB NAV ── -->
-<nav class="tab-nav">
-  <div class="tab-nav-inner">
-    <button class="tab-btn active" onclick="scrollTo('cc-single')">
-      <div class="tab-icon" style="background:#E8473F; border-radius:5px;">
-        <svg width="26" height="26" viewBox="0 0 26 26"><rect width="26" height="26" rx="5" fill="#E8473F"/><text x="13" y="18" text-anchor="middle" font-family="Adobe Clean,sans-serif" font-weight="700" font-size="10" fill="white">CC</text></svg>
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-badge">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <circle cx="6" cy="6" r="5" stroke="white" stroke-width="1.2"/>
+            <path d="M4 6l1.5 1.5L8 4" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Adobe 공식 파트너 솔루션
+        </div>
+        <h1>창의성과 생산성을<br><em>하나로 연결하는</em><br>Adobe</h1>
+        <p class="hero-desc">Creative Cloud, Acrobat Pro DC, Substance 3D까지 — 디자인·문서·3D 제작에 필요한 모든 솔루션을 한 파트너에서 도입하세요.</p>
+        <div class="hero-btns">
+          <!--<<button class="btn-hero-primary" onclick="scrollToSection('cc-single')">제품 살펴보기</button>
+          <button class="btn-hero-ghost" onclick="scrollToSection('contact')">견적 문의</button>-->
+        </div>
       </div>
-      CC Single App
-    </button>
-    <button class="tab-btn" onclick="scrollTo('cct-pro')">
-      <div class="tab-icon" style="background:#2C2C2C; border-radius:5px;">
-        <svg width="26" height="26" viewBox="0 0 26 26"><rect width="26" height="26" rx="5" fill="#2C2C2C"/><text x="13" y="18" text-anchor="middle" font-family="Adobe Clean,sans-serif" font-weight="700" font-size="9" fill="white">CCT</text></svg>
+      <div class="hero-visual fade-up delay-2">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <rect width="64" height="64" rx="14" fill="#E8473F"/>
+          <path d="M10 50L26 14l7 16-9 20H10z" fill="white" opacity="0.95"/>
+          <path d="M54 50L38 14l-7 16" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 38h24" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <div class="hero-visual-label">Adobe</div>
+        <div class="hero-visual-sub">공식 파트너 · 4개 솔루션</div>
       </div>
-      CCT Pro & Pro Plus
-    </button>
-    <button class="tab-btn" onclick="scrollTo('acrobat')">
-      <div class="tab-icon" style="background:#EC1C24; border-radius:5px;">
-        <svg width="26" height="26" viewBox="0 0 26 26"><rect width="26" height="26" rx="5" fill="#EC1C24"/><text x="13" y="18" text-anchor="middle" font-family="Adobe Clean,sans-serif" font-weight="700" font-size="10" fill="white">Ac</text></svg>
-      </div>
-      Acrobat Pro DC
-    </button>
-    <button class="tab-btn" onclick="scrollTo('substance')">
-      <div class="tab-icon" style="background:#1B0033; border-radius:5px;">
-        <svg width="26" height="26" viewBox="0 0 26 26"><rect width="26" height="26" rx="5" fill="#1B0033"/><text x="13" y="18" text-anchor="middle" font-family="Adobe Clean,sans-serif" font-weight="700" font-size="10" fill="#C38FFF">Su</text></svg>
-      </div>
-      Substance 3D
-    </button>
+    </div>
   </div>
-</nav>
+
+  <!-- ── STICKY TAB NAV ── -->
+  <nav class="tab-nav">
+    <div class="tab-nav-inner">
+      <button class="tab-btn active" onclick="scrollToSection('cc-single')">
+        <div class="tab-icon" style="background:#E8473F; border-radius:5px;">
+          <svg width="26" height="26" viewBox="0 0 26 26">
+            <rect width="26" height="26" rx="5" fill="#E8473F"/><text x="13" y="18" text-anchor="middle"
+              font-family="Adobe Clean,sans-serif" font-weight="700" font-size="10" fill="white">CC</text>
+          </svg>
+        </div>
+        CC Single App
+      </button>
+      <button class="tab-btn" onclick="scrollToSection('cct-pro')">
+        <div class="tab-icon" style="background:#2C2C2C; border-radius:5px;">
+          <svg width="26" height="26" viewBox="0 0 26 26">
+            <rect width="26" height="26" rx="5" fill="#2C2C2C"/><text x="13" y="18" text-anchor="middle"
+              font-family="Adobe Clean,sans-serif" font-weight="700" font-size="9" fill="white">CCT</text>
+          </svg>
+        </div>
+        CCT Pro & Pro Plus
+      </button>
+      <button class="tab-btn" onclick="scrollToSection('acrobat')">
+        <div class="tab-icon" style="background:#EC1C24; border-radius:5px;">
+          <svg width="26" height="26" viewBox="0 0 26 26">
+            <rect width="26" height="26" rx="5" fill="#EC1C24"/><text x="13" y="18" text-anchor="middle"
+              font-family="Adobe Clean,sans-serif" font-weight="700" font-size="10" fill="white">Ac</text>
+          </svg>
+        </div>
+        Acrobat Pro DC & Acrobat Studio
+      </button>
+      <button class="tab-btn" onclick="scrollToSection('substance')">
+        <div class="tab-icon" style="background:#1B0033; border-radius:5px;">
+          <svg width="26" height="26" viewBox="0 0 26 26">
+            <rect width="26" height="26" rx="5" fill="#1B0033"/><text x="13" y="18" text-anchor="middle"
+              font-family="Adobe Clean,sans-serif" font-weight="700" font-size="10" fill="#C38FFF">Su</text>
+          </svg>
+        </div>
+        Substance 3D
+      </button>
 
 
-<!-- ══════════════════════════════════
+      
+      <button class="tab-btn" onclick="scrollToSection('contact')" style="
+        background:#E8473F; color:#fff; border-radius:20px;
+        padding:0 20px; margin:auto 0 auto 16px;
+        height:36px; border-bottom:none;">
+        견적 문의
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════
   01. CC Single App
 ══════════════════════════════════ -->
-<section class="product-section" id="cc-single">
-  <div class="wrapper">
-    <div class="product-hero">
-      <div>
-        <div class="product-tag">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" fill="#E8473F"/></svg>
-          Adobe Creative Cloud
+  <section class="product-section" id="cc-single">
+    <div class="wrapper">
+      <div class="product-hero">
+        <div>
+          <div class="product-tag">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle cx="7" cy="7" r="6" fill="#E8473F" />
+            </svg>
+            Adobe Creative Cloud
+          </div>
+          <h2 class="product-title">CC Single App<br><span style="font-weight:400; font-size:0.7em; color:#555;">하나의 앱,
+              온전한 전문가 도구</span></h2>
+          <p class="product-desc">필요한 앱 하나만 구독해 사용하는 플랜. Photoshop, Illustrator, Premiere Pro 등 원하는 앱을 단독으로 이용하면서 1TB
+            클라우드 저장소와 Adobe Fonts까지 포함됩니다.</p>
+          <div class="include-row">
+            <span class="include-chip">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              1TB 클라우드 스토리지
+            </span>
+            <span class="include-chip">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              Adobe Fonts 전체
+            </span>
+            <span class="include-chip">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              Adobe Express 포함
+            </span>
+            <span class="include-chip">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              Firefly AI 생성 크레딧
+            </span>
+            <span class="include-chip">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              7일 무료 체험
+            </span>
+          </div>
+          <div class="product-btns">
+          
+          </div>
         </div>
-        <h2 class="product-title">CC Single App<br><span style="font-weight:400; font-size:0.7em; color:#555;">하나의 앱, 온전한 전문가 도구</span></h2>
-        <p class="product-desc">필요한 앱 하나만 구독해 사용하는 플랜. Photoshop, Illustrator, Premiere Pro 등 원하는 앱을 단독으로 이용하면서 1TB 클라우드 저장소와 Adobe Fonts까지 포함됩니다.</p>
-        <div class="include-row">
-          <span class="include-chip">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            1TB 클라우드 스토리지
-          </span>
-          <span class="include-chip">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Adobe Fonts 전체
-          </span>
-          <span class="include-chip">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Adobe Express 포함
-          </span>
-          <span class="include-chip">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Firefly AI 생성 크레딧
-          </span>
-          <span class="include-chip">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            7일 무료 체험
-          </span>
-        </div>
-        <div class="product-btns">
-          <button class="btn-primary" data-scroll="contact">상담 신청</button>
-          <button class="btn-outline">앱 목록 보기</button>
+        <div class="product-badge" style="background:#FEF2F2; border: 1px solid #FECACA;">
+          <div class="product-badge-icon" style="background:#E8473F;">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+              <path d="M5 28L14 6l5 12-4 10H5z" fill="white" opacity="0.9" />
+              <path d="M29 28L20 6l-5 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M12 22h10" stroke="white" stroke-width="2.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="product-badge-name" style="color:#C93A32;">Creative Cloud</div>
+          <div class="product-badge-sub" style="color:#E8473F;">Single App</div>
         </div>
       </div>
-      <div class="product-badge" style="background:#FEF2F2; border: 1px solid #FECACA;">
-        <div class="product-badge-icon" style="background:#E8473F;">
-          <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M5 28L14 6l5 12-4 10H5z" fill="white" opacity="0.9"/><path d="M29 28L20 6l-5 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 22h10" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+
+      <!-- 대표 앱 목록 -->
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#001E36;">
+            <svg width="36" height="36" viewBox="0 0 36 36">
+              <rect width="36" height="36" rx="7" fill="#001E36" /><text x="18" y="24" text-anchor="middle"
+                font-family="Adobe Clean,sans-serif" font-weight="700" font-size="14" fill="#31A8FF">Ps</text>
+            </svg>
+          </div>
+          <h4>Photoshop</h4>
+          <p>사진 편집, 합성, 디지털 아트의 업계 표준</p>
         </div>
-        <div class="product-badge-name" style="color:#C93A32;">Creative Cloud</div>
-        <div class="product-badge-sub" style="color:#E8473F;">Single App</div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#330000;">
+            <svg width="36" height="36" viewBox="0 0 36 36">
+              <rect width="36" height="36" rx="7" fill="#330000" /><text x="18" y="24" text-anchor="middle"
+                font-family="Adobe Clean,sans-serif" font-weight="700" font-size="14" fill="#FF9A00">Ai</text>
+            </svg>
+          </div>
+          <h4>Illustrator</h4>
+          <p>벡터 그래픽, 로고, 일러스트레이션 제작</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#49021F;">
+            <svg width="36" height="36" viewBox="0 0 36 36">
+              <rect width="36" height="36" rx="7" fill="#49021F" /><text x="18" y="24" text-anchor="middle"
+                font-family="Adobe Clean,sans-serif" font-weight="700" font-size="14" fill="#FF3366">Id</text>
+            </svg>
+          </div>
+          <h4>InDesign</h4>
+          <p>출판, 브로슈어, 잡지 레이아웃 디자인</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#00005B;">
+            <svg width="36" height="36" viewBox="0 0 36 36">
+              <rect width="36" height="36" rx="7" fill="#00005B" /><text x="18" y="24" text-anchor="middle"
+                font-family="Adobe Clean,sans-serif" font-weight="700" font-size="14" fill="#9999FF">Pr</text>
+            </svg>
+          </div>
+          <h4>Premiere Pro</h4>
+          <p>전문 영상 편집, 색보정, 오디오 편집</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#00005B;">
+            <svg width="36" height="36" viewBox="0 0 36 36">
+              <rect width="36" height="36" rx="7" fill="#00005B" /><text x="18" y="24" text-anchor="middle"
+                font-family="Adobe Clean,sans-serif" font-weight="700" font-size="14" fill="#D291FF">Ae</text>
+            </svg>
+          </div>
+          <h4>After Effects</h4>
+          <p>모션 그래픽, VFX, 애니메이션 제작</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#001A2E;">
+            <svg width="36" height="36" viewBox="0 0 36 36">
+              <rect width="36" height="36" rx="7" fill="#001A2E" /><text x="18" y="24" text-anchor="middle"
+                font-family="Adobe Clean,sans-serif" font-weight="700" font-size="14" fill="#3DF0F0">Lr</text>
+            </svg>
+          </div>
+          <h4>Lightroom</h4>
+          <p>사진 보정, 정리, 일괄 편집 전문 툴</p>
+        </div>
       </div>
     </div>
-
-    <!-- 대표 앱 목록 -->
-    <div class="feature-grid">
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#001E36;">
-          <svg width="36" height="36" viewBox="0 0 36 36"><rect width="36" height="36" rx="7" fill="#001E36"/><text x="18" y="24" text-anchor="middle" font-family="Adobe Clean,sans-serif" font-weight="700" font-size="14" fill="#31A8FF">Ps</text></svg>
-        </div>
-        <h4>Photoshop</h4>
-        <p>사진 편집, 합성, 디지털 아트의 업계 표준</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#330000;">
-          <svg width="36" height="36" viewBox="0 0 36 36"><rect width="36" height="36" rx="7" fill="#330000"/><text x="18" y="24" text-anchor="middle" font-family="Adobe Clean,sans-serif" font-weight="700" font-size="14" fill="#FF9A00">Ai</text></svg>
-        </div>
-        <h4>Illustrator</h4>
-        <p>벡터 그래픽, 로고, 일러스트레이션 제작</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#49021F;">
-          <svg width="36" height="36" viewBox="0 0 36 36"><rect width="36" height="36" rx="7" fill="#49021F"/><text x="18" y="24" text-anchor="middle" font-family="Adobe Clean,sans-serif" font-weight="700" font-size="14" fill="#FF3366">Id</text></svg>
-        </div>
-        <h4>InDesign</h4>
-        <p>출판, 브로슈어, 잡지 레이아웃 디자인</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#00005B;">
-          <svg width="36" height="36" viewBox="0 0 36 36"><rect width="36" height="36" rx="7" fill="#00005B"/><text x="18" y="24" text-anchor="middle" font-family="Adobe Clean,sans-serif" font-weight="700" font-size="14" fill="#9999FF">Pr</text></svg>
-        </div>
-        <h4>Premiere Pro</h4>
-        <p>전문 영상 편집, 색보정, 오디오 편집</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#00005B;">
-          <svg width="36" height="36" viewBox="0 0 36 36"><rect width="36" height="36" rx="7" fill="#00005B"/><text x="18" y="24" text-anchor="middle" font-family="Adobe Clean,sans-serif" font-weight="700" font-size="14" fill="#D291FF">Ae</text></svg>
-        </div>
-        <h4>After Effects</h4>
-        <p>모션 그래픽, VFX, 애니메이션 제작</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#001A2E;">
-          <svg width="36" height="36" viewBox="0 0 36 36"><rect width="36" height="36" rx="7" fill="#001A2E"/><text x="18" y="24" text-anchor="middle" font-family="Adobe Clean,sans-serif" font-weight="700" font-size="14" fill="#3DF0F0">Lr</text></svg>
-        </div>
-        <h4>Lightroom</h4>
-        <p>사진 보정, 정리, 일괄 편집 전문 툴</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════
+  <!-- ══════════════════════════════════
   02. CCT Pro & Pro Plus
 ══════════════════════════════════ -->
-<section class="product-section" id="cct-pro">
-  <div class="wrapper">
-    <div class="product-hero">
-      <div>
-        <div class="product-tag">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" fill="#2C2C2C"/><rect x="8" y="1" width="5" height="5" fill="#2C2C2C"/><rect x="1" y="8" width="5" height="5" fill="#2C2C2C"/><rect x="8" y="8" width="5" height="5" fill="#2C2C2C"/></svg>
-          Creative Cloud for Teams
+  <section class="product-section" id="cct-pro">
+    <div class="wrapper">
+      <div class="product-hero">
+        <div>
+          <div class="product-tag">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <rect x="1" y="1" width="5" height="5" fill="#2C2C2C" />
+              <rect x="8" y="1" width="5" height="5" fill="#2C2C2C" />
+              <rect x="1" y="8" width="5" height="5" fill="#2C2C2C" />
+              <rect x="8" y="8" width="5" height="5" fill="#2C2C2C" />
+            </svg>
+            Creative Cloud for Teams
+          </div>
+          <h2 class="product-title">CCT Pro &amp; Pro Plus<br><span
+              style="font-weight:400; font-size:0.7em; color:#555;">팀을 위한 통합 크리에이티브 플랫폼</span></h2>
+          <p class="product-desc">20개 이상의 Creative Cloud 앱 전체를 팀 단위로 관리하는 기업 전용 플랜. 중앙 Admin Console, 1TB 공유 스토리지, 에셋 보호
+            기능까지 포함되어 팀 협업에 최적화되어 있습니다.</p>
+          <div class="product-btns">
+          
+          </div>
         </div>
-        <h2 class="product-title">CCT Pro &amp; Pro Plus<br><span style="font-weight:400; font-size:0.7em; color:#555;">팀을 위한 통합 크리에이티브 플랫폼</span></h2>
-        <p class="product-desc">20개 이상의 Creative Cloud 앱 전체를 팀 단위로 관리하는 기업 전용 플랜. 중앙 Admin Console, 1TB 공유 스토리지, 에셋 보호 기능까지 포함되어 팀 협업에 최적화되어 있습니다.</p>
-        <div class="product-btns">
-          <button class="btn-primary" data-scroll="contact">상담 신청</button>
-          <button class="btn-outline">플랜 비교 보기</button>
+        <div class="product-badge" style="background:#F5F5F5; border: 1px solid #DDD;">
+          <div class="product-badge-icon" style="background:#2C2C2C;">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+              <rect x="4" y="4" width="11" height="11" rx="2" fill="white" opacity="0.9" />
+              <rect x="19" y="4" width="11" height="11" rx="2" fill="white" opacity="0.9" />
+              <rect x="4" y="19" width="11" height="11" rx="2" fill="white" opacity="0.9" />
+              <rect x="19" y="19" width="11" height="11" rx="2" fill="white" opacity="0.9" />
+            </svg>
+          </div>
+          <div class="product-badge-name" style="color:#1a1a2e;">Creative Cloud</div>
+          <div class="product-badge-sub" style="color:#555;">for Teams Pro</div>
         </div>
       </div>
-      <div class="product-badge" style="background:#F5F5F5; border: 1px solid #DDD;">
-        <div class="product-badge-icon" style="background:#2C2C2C;">
-          <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><rect x="4" y="4" width="11" height="11" rx="2" fill="white" opacity="0.9"/><rect x="19" y="4" width="11" height="11" rx="2" fill="white" opacity="0.9"/><rect x="4" y="19" width="11" height="11" rx="2" fill="white" opacity="0.9"/><rect x="19" y="19" width="11" height="11" rx="2" fill="white" opacity="0.9"/></svg>
+
+      <!-- Pro vs Pro Plus 비교표 -->
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="width:42%;">기능</th>
+            <th style="width:29%;">CCT Pro</th>
+            <th class="th-highlight" style="width:29%;">CCT Pro Plus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Creative Cloud 앱 20개 이상</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>사용자당 1TB 클라우드 스토리지</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Admin Console 중앙 관리</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>에셋 보호 (퇴사자 파일 회수)</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>180일 버전 내역</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Adobe Firefly AI 생성 크레딧</td>
+            <td>기본 제공</td>
+            <td><strong>확장 제공</strong></td>
+          </tr>
+          <tr>
+            <td>Adobe Stock 표준 에셋</td>
+            <td><span class="dash">–</span></td>
+            <td><strong>무제한 이용</strong></td>
+          </tr>
+          <tr>
+            <td>강화 라이선스 (상업적 안전 사용)</td>
+            <td><span class="dash">–</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Firefly 결과물 IP 면책</td>
+            <td><span class="dash">–</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 공통 핵심 기능 -->
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#EFF6FF;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 4h12v10H4z" stroke="#2563EB" stroke-width="1.5" stroke-linejoin="round" />
+              <path d="M7 17h6" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M10 14v3" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h4>중앙 Admin Console</h4>
+          <p>라이선스 할당, 앱 배포, 사용 현황을 웹에서 통합 관리</p>
         </div>
-        <div class="product-badge-name" style="color:#1a1a2e;">Creative Cloud</div>
-        <div class="product-badge-sub" style="color:#555;">for Teams Pro</div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#F0FDF4;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 3l7 4v6l-7 4-7-4V7z" stroke="#16A34A" stroke-width="1.5" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h4>에셋 보호</h4>
+          <p>팀원 퇴사 시에도 회사 파일·작업물을 안전하게 회수</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#FEF9C3;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="7" stroke="#CA8A04" stroke-width="1.5" />
+              <path d="M7 10l2 2 4-4" stroke="#CA8A04" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h4>24시간 전담 지원</h4>
+          <p>연중무휴 기술 지원 및 Adobe 전문가와의 1:1 세션</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#FDF4FF;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10h12M10 4l6 6-6 6" stroke="#9333EA" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h4>공유 라이브러리</h4>
+          <p>브랜드 에셋, 색상 팔레트를 팀 전체에서 실시간 공유</p>
+        </div>
       </div>
     </div>
-
-    <!-- Pro vs Pro Plus 비교표 -->
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th style="width:42%;">기능</th>
-          <th style="width:29%;">CCT Pro</th>
-          <th class="th-highlight" style="width:29%;">CCT Pro Plus</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Creative Cloud 앱 20개 이상</td>
-          <td><span class="check">✓</span></td>
-          <td><span class="check">✓</span></td>
-        </tr>
-        <tr>
-          <td>사용자당 1TB 클라우드 스토리지</td>
-          <td><span class="check">✓</span></td>
-          <td><span class="check">✓</span></td>
-        </tr>
-        <tr>
-          <td>Admin Console 중앙 관리</td>
-          <td><span class="check">✓</span></td>
-          <td><span class="check">✓</span></td>
-        </tr>
-        <tr>
-          <td>에셋 보호 (퇴사자 파일 회수)</td>
-          <td><span class="check">✓</span></td>
-          <td><span class="check">✓</span></td>
-        </tr>
-        <tr>
-          <td>180일 버전 내역</td>
-          <td><span class="check">✓</span></td>
-          <td><span class="check">✓</span></td>
-        </tr>
-        <tr>
-          <td>Adobe Firefly AI 생성 크레딧</td>
-          <td>기본 제공</td>
-          <td><strong>확장 제공</strong></td>
-        </tr>
-        <tr>
-          <td>Adobe Stock 표준 에셋</td>
-          <td><span class="dash">–</span></td>
-          <td><strong>무제한 이용</strong></td>
-        </tr>
-        <tr>
-          <td>강화 라이선스 (상업적 안전 사용)</td>
-          <td><span class="dash">–</span></td>
-          <td><span class="check">✓</span></td>
-        </tr>
-        <tr>
-          <td>Firefly 결과물 IP 면책</td>
-          <td><span class="dash">–</span></td>
-          <td><span class="check">✓</span></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- 공통 핵심 기능 -->
-    <div class="feature-grid">
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#EFF6FF;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 4h12v10H4z" stroke="#2563EB" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 17h6" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/><path d="M10 14v3" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <h4>중앙 Admin Console</h4>
-        <p>라이선스 할당, 앱 배포, 사용 현황을 웹에서 통합 관리</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#F0FDF4;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3l7 4v6l-7 4-7-4V7z" stroke="#16A34A" stroke-width="1.5" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>에셋 보호</h4>
-        <p>팀원 퇴사 시에도 회사 파일·작업물을 안전하게 회수</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#FEF9C3;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#CA8A04" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="#CA8A04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>24시간 전담 지원</h4>
-        <p>연중무휴 기술 지원 및 Adobe 전문가와의 1:1 세션</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#FDF4FF;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M10 4l6 6-6 6" stroke="#9333EA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>공유 라이브러리</h4>
-        <p>브랜드 에셋, 색상 팔레트를 팀 전체에서 실시간 공유</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════
+  <!-- ══════════════════════════════════
   03. Acrobat Pro DC
 ══════════════════════════════════ -->
-<section class="product-section" id="acrobat">
-  <div class="wrapper">
-    <div class="product-hero">
-      <div>
-        <div class="product-tag">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 1h5l3 3v9H3V1z" fill="#EC1C24"/></svg>
-          Adobe Acrobat
+  <section class="product-section" id="acrobat">
+    <div class="wrapper">
+      <div class="product-hero">
+        <div>
+          <div class="product-tag">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M3 1h5l3 3v9H3V1z" fill="#EC1C24" />
+            </svg>
+            Adobe Acrobat
+          </div>
+          <h2 class="product-title">Acrobat Pro DC<br><span style="font-weight:400; font-size:0.7em; color:#555;">PDF의
+              모든 것을 하나로</span></h2>
+          <p class="product-desc">PDF 생성·편집·변환·서명·보호까지. 업무 문서의 표준인 Acrobat Pro DC로 종이 없는 디지털 워크플로우를 완성하세요. AI 어시스턴트로 문서
+            내용을 즉시 요약하고 질문에 답변받을 수 있습니다.</p>
+          <div class="include-row">
+            <span class="include-chip">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              Windows · Mac · 모바일
+            </span>
+            <span class="include-chip">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              전자 서명 무제한
+            </span>
+            <span class="include-chip">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              AI 어시스턴트 포함
+            </span>
+          </div>
+          <div class="product-btns">
+          
+          </div>
         </div>
-        <h2 class="product-title">Acrobat Pro DC<br><span style="font-weight:400; font-size:0.7em; color:#555;">PDF의 모든 것을 하나로</span></h2>
-        <p class="product-desc">PDF 생성·편집·변환·서명·보호까지. 업무 문서의 표준인 Acrobat Pro DC로 종이 없는 디지털 워크플로우를 완성하세요. AI 어시스턴트로 문서 내용을 즉시 요약하고 질문에 답변받을 수 있습니다.</p>
-        <div class="include-row">
-          <span class="include-chip">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Windows · Mac · 모바일
-          </span>
-          <span class="include-chip">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            전자 서명 무제한
-          </span>
-          <span class="include-chip">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            AI 어시스턴트 포함
-          </span>
-        </div>
-        <div class="product-btns">
-          <button class="btn-primary" data-scroll="contact">상담 신청</button>
-          <button class="btn-outline">7일 무료 체험</button>
+        <div class="product-badge" style="background:#FEF2F2; border: 1px solid #FECACA;">
+          <div class="product-badge-icon" style="background:#EC1C24;">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+              <path d="M8 4h11l7 7v19H8V4z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round" />
+              <path d="M19 4v7h7" stroke="white" stroke-width="2" stroke-linejoin="round" />
+              <path d="M12 17h10M12 21h7M12 25h10" stroke="white" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="product-badge-name" style="color:#B91C1C;">Adobe Acrobat</div>
+          <div class="product-badge-sub" style="color:#EC1C24;">Pro DC</div>
         </div>
       </div>
-      <div class="product-badge" style="background:#FEF2F2; border: 1px solid #FECACA;">
-        <div class="product-badge-icon" style="background:#EC1C24;">
-          <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M8 4h11l7 7v19H8V4z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M19 4v7h7" stroke="white" stroke-width="2" stroke-linejoin="round"/><path d="M12 17h10M12 21h7M12 25h10" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#FEF2F2;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 3h7l4 4v10H4V3z" stroke="#DC2626" stroke-width="1.5" stroke-linejoin="round" />
+              <path d="M11 3v4h4" stroke="#DC2626" stroke-width="1.5" />
+              <path d="M6 10h8M6 13h5" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h4>PDF 생성 & 편집</h4>
+          <p>Word, Excel 등 모든 형식을 PDF로 변환하고 텍스트·이미지를 직접 편집</p>
         </div>
-        <div class="product-badge-name" style="color:#B91C1C;">Adobe Acrobat</div>
-        <div class="product-badge-sub" style="color:#EC1C24;">Pro DC</div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#FEF9C3;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M5 14l4-4 2 2 4-5" stroke="#B45309" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <rect x="3" y="3" width="14" height="14" rx="2" stroke="#B45309" stroke-width="1.5" />
+            </svg>
+          </div>
+          <h4>전자 서명</h4>
+          <p>법적 효력 있는 전자 서명을 요청·수신·관리. 계약 프로세스를 디지털화</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#EFF6FF;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="9" r="4" stroke="#2563EB" stroke-width="1.5" />
+              <path d="M10 5V3M10 15v-2M4 9H2M18 9h-2" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M7 16l3 2 3-2" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h4>AI 어시스턴트</h4>
+          <p>긴 문서를 자동 요약하고 내용에 대한 질문에 즉시 답변</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#F0FDF4;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <rect x="3" y="3" width="14" height="14" rx="2" stroke="#16A34A" stroke-width="1.5" />
+              <path d="M7 7h6M7 10h4M7 13h6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h4>양식 & 설문</h4>
+          <p>인터랙티브 PDF 양식 제작, 데이터 수집 및 내보내기</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#FDF4FF;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 3l7 4v6l-7 4-7-4V7z" stroke="#9333EA" stroke-width="1.5" stroke-linejoin="round" />
+              <path d="M10 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke="#9333EA" stroke-width="1.5" />
+            </svg>
+          </div>
+          <h4>문서 보안</h4>
+          <p>암호화, 열람·인쇄 권한 설정으로 기밀 문서 보호</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#FEF2F2;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M5 10h10M10 5l5 5-5 5" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h4>형식 변환</h4>
+          <p>PDF → Word, Excel, PPT, 이미지 등 원하는 형식으로 즉시 변환</p>
+        </div>
       </div>
     </div>
-
-    <div class="feature-grid">
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#FEF2F2;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 3h7l4 4v10H4V3z" stroke="#DC2626" stroke-width="1.5" stroke-linejoin="round"/><path d="M11 3v4h4" stroke="#DC2626" stroke-width="1.5"/><path d="M6 10h8M6 13h5" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <h4>PDF 생성 & 편집</h4>
-        <p>Word, Excel 등 모든 형식을 PDF로 변환하고 텍스트·이미지를 직접 편집</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#FEF9C3;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 14l4-4 2 2 4-5" stroke="#B45309" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="3" width="14" height="14" rx="2" stroke="#B45309" stroke-width="1.5"/></svg>
-        </div>
-        <h4>전자 서명</h4>
-        <p>법적 효력 있는 전자 서명을 요청·수신·관리. 계약 프로세스를 디지털화</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#EFF6FF;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="9" r="4" stroke="#2563EB" stroke-width="1.5"/><path d="M10 5V3M10 15v-2M4 9H2M18 9h-2" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/><path d="M7 16l3 2 3-2" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>AI 어시스턴트</h4>
-        <p>긴 문서를 자동 요약하고 내용에 대한 질문에 즉시 답변</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#F0FDF4;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2" stroke="#16A34A" stroke-width="1.5"/><path d="M7 7h6M7 10h4M7 13h6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <h4>양식 & 설문</h4>
-        <p>인터랙티브 PDF 양식 제작, 데이터 수집 및 내보내기</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#FDF4FF;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3l7 4v6l-7 4-7-4V7z" stroke="#9333EA" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke="#9333EA" stroke-width="1.5"/></svg>
-        </div>
-        <h4>문서 보안</h4>
-        <p>암호화, 열람·인쇄 권한 설정으로 기밀 문서 보호</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-item-icon" style="background:#FEF2F2;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10M10 5l5 5-5 5" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>형식 변환</h4>
-        <p>PDF → Word, Excel, PPT, 이미지 등 원하는 형식으로 즉시 변환</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════
+ 
+
+
+  <!-- ══════════════════════════════════
   04. Substance 3D Collection
 ══════════════════════════════════ -->
-<section class="product-section" id="substance">
-  <div class="wrapper">
-    <div class="product-hero">
-      <div>
-        <div class="product-tag">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1l6 3.5v5L7 13 1 9.5v-5z" fill="#8A4FFF"/></svg>
-          Adobe Substance 3D
+  <section class="product-section" id="substance">
+    <div class="wrapper">
+      <div class="product-hero">
+        <div>
+          <div class="product-tag">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M7 1l6 3.5v5L7 13 1 9.5v-5z" fill="#8A4FFF" />
+            </svg>
+            Adobe Substance 3D
+          </div>
+          <h2 class="product-title">Substance 3D Collection<br><span
+              style="font-weight:400; font-size:0.7em; color:#555;">사실적인 3D 콘텐츠 제작의 모든 것</span></h2>
+          <p class="product-desc">재질 제작부터 3D 모델링, 텍스처 페인팅, 렌더링까지 전문 3D 파이프라인을 한 번에. 게임, 영화 VFX, 제품 디자인, 건축 시각화에 최적화된 5개
+            앱이 컬렉션으로 제공됩니다.</p>
+          <div class="include-row">
+            <span class="include-chip">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              5개 전문 3D 앱 포함
+            </span>
+            <span class="include-chip">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              3D Assets 라이브러리
+            </span>
+            <span class="include-chip">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              Photoshop·Cinema 4D 통합
+            </span>
+          </div>
+          <div class="product-btns">
+        
+          </div>
         </div>
-        <h2 class="product-title">Substance 3D Collection<br><span style="font-weight:400; font-size:0.7em; color:#555;">사실적인 3D 콘텐츠 제작의 모든 것</span></h2>
-        <p class="product-desc">재질 제작부터 3D 모델링, 텍스처 페인팅, 렌더링까지 전문 3D 파이프라인을 한 번에. 게임, 영화 VFX, 제품 디자인, 건축 시각화에 최적화된 5개 앱이 컬렉션으로 제공됩니다.</p>
-        <div class="include-row">
-          <span class="include-chip">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            5개 전문 3D 앱 포함
-          </span>
-          <span class="include-chip">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            3D Assets 라이브러리
-          </span>
-          <span class="include-chip">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Photoshop·Cinema 4D 통합
-          </span>
-        </div>
-        <div class="product-btns">
-          <button class="btn-primary" data-scroll="contact">상담 신청</button>
-          <button class="btn-outline">30일 무료 체험</button>
+        <div class="product-badge" style="background:#F5F0FF; border: 1px solid #D8B4FE;">
+          <div class="product-badge-icon" style="background:#8A4FFF;">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+              <path d="M17 4l13 7.5v15L17 34 4 26.5v-15z" stroke="white" stroke-width="2" fill="none" />
+              <path d="M17 4v13M4 11.5l13 5.5 13-5.5" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="product-badge-name" style="color:#6D28D9;">Substance 3D</div>
+          <div class="product-badge-sub" style="color:#8A4FFF;">Collection</div>
         </div>
       </div>
-      <div class="product-badge" style="background:#F5F0FF; border: 1px solid #D8B4FE;">
-        <div class="product-badge-icon" style="background:#8A4FFF;">
-          <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M17 4l13 7.5v15L17 34 4 26.5v-15z" stroke="white" stroke-width="2" fill="none"/><path d="M17 4v13M4 11.5l13 5.5 13-5.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <div class="product-badge-name" style="color:#6D28D9;">Substance 3D</div>
-        <div class="product-badge-sub" style="color:#8A4FFF;">Collection</div>
-      </div>
-    </div>
 
-    <!-- 포함 앱 5개 -->
-    <div class="app-list">
-      <div class="app-card">
-        <div class="app-card-icon" style="background:#1B0033; border-radius:8px; overflow:hidden;">
-          <!--<svg width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" fill="#1B0033"/><text x="20" y="26" text-anchor="middle" font-family="Adobe Clean,sans-serif" font-weight="700" font-size="13" fill="#C38FFF">St</text></svg>-->
-          <img src="https://ffc-static-cdn.oobesaas.adobe.com/icons/SBSTP/12.0.3/96x96.png" alt="Substance 3D Painter" width="40" height="40">
+      <!-- 포함 앱 5개 -->
+      <div class="app-list">
+        <div class="app-card">
+          <div class="app-card-icon">
+            <img src="../icons/3D_Painter.webp" alt="Substance 3D Painter" width="40" height="40">
+          </div>
+          <div>
+            <div class="app-card-name">Substance 3D Painter</div>
+            <div class="app-card-desc">3D 모델에 직접 텍스처를 페인팅. 사실적인 재질 표현의 업계 표준</div>
+          </div>
         </div>
-        <div>
-          <div class="app-card-name">Substance 3D Painter</div>
-          <div class="app-card-desc">3D 모델에 직접 텍스처를 페인팅. 사실적인 재질 표현의 업계 표준</div>
+        <div class="app-card">
+          <div class="app-card-icon" style="background:#1C0036; border-radius:8px; overflow:hidden;">
+            <img src="https://ffc-static-cdn.oobesaas.adobe.com/icons/SBSTD/16.0.1/96x96.png"
+              alt="Substance 3D Designer" width="40" height="40">
+          </div>
+          <div>
+            <div class="app-card-name">Substance 3D Designer</div>
+            <div class="app-card-desc">노드 기반으로 재질·패턴·필터를 절차적으로 생성. 아카데미 어워드 수상</div>
+          </div>
+        </div>
+        <div class="app-card">
+          <div class="app-card-icon" style="background:#130030; border-radius:8px; overflow:hidden;">
+            <img src="https://ffc-static-cdn.oobesaas.adobe.com/icons/SBSTA/6.0.1/96x96.png" alt="Substance 3D Sampler"
+              width="40" height="40">
+          </div>
+          <div>
+            <div class="app-card-name">Substance 3D Sampler</div>
+            <div class="app-card-desc">사진 한 장으로 3D 재질·모델·HDR 조명을 자동 생성</div>
+          </div>
+        </div>
+        <div class="app-card">
+          <div class="app-card-icon" style="background:#1A0040; border-radius:8px; overflow:hidden;">
+            <img src="https://ffc-static-cdn.oobesaas.adobe.com/icons/STGR/3.1.8/96x96.png" alt="Substance 3D Stager"
+              width="40" height="40">
+          </div>
+          <div>
+            <div class="app-card-name">Substance 3D Stager</div>
+            <div class="app-card-desc">3D 장면 연출·조명 설정 후 사실적인 렌더링 이미지 출력</div>
+          </div>
+        </div>
+        <div class="app-card">
+          <div class="app-card-icon" style="background:#150035; border-radius:8px; overflow:hidden;">
+            <img src="https://ffc-static-cdn.oobesaas.adobe.com/icons/SHPR/1.22.7/96x96.png" alt="Substance 3D Modeler"
+              width="40" height="40">
+          </div>
+          <div>
+            <div class="app-card-name">Substance 3D Modeler</div>
+            <div class="app-card-desc">데스크톱·VR에서 직관적인 3D 스컬프팅 및 모델 제작</div>
+          </div>
         </div>
       </div>
-      <div class="app-card">
-        <div class="app-card-icon" style="background:#1C0036; border-radius:8px; overflow:hidden;">
-          	<img src="https://ffc-static-cdn.oobesaas.adobe.com/icons/SBSTD/16.0.1/96x96.png" alt="Substance 3D Designer" width="40" height="40">
-        </div>
-        <div>
-          <div class="app-card-name">Substance 3D Designer</div>
-          <div class="app-card-desc">노드 기반으로 재질·패턴·필터를 절차적으로 생성. 아카데미 어워드 수상</div>
-        </div>
-      </div>
-      <div class="app-card">
-        <div class="app-card-icon" style="background:#130030; border-radius:8px; overflow:hidden;">
-          <img src="https://ffc-static-cdn.oobesaas.adobe.com/icons/SBSTA/6.0.1/96x96.png" alt="Substance 3D Sampler" width="40" height="40">
-        </div>
-        <div>
-          <div class="app-card-name">Substance 3D Sampler</div>
-          <div class="app-card-desc">사진 한 장으로 3D 재질·모델·HDR 조명을 자동 생성</div>
-        </div>
-      </div>
-      <div class="app-card">
-        <div class="app-card-icon" style="background:#1A0040; border-radius:8px; overflow:hidden;">
-            <img src="https://ffc-static-cdn.oobesaas.adobe.com/icons/STGR/3.1.8/96x96.png" alt="Substance 3D Stager" width="40" height="40">
-        </div>
-        <div>
-          <div class="app-card-name">Substance 3D Stager</div>
-          <div class="app-card-desc">3D 장면 연출·조명 설정 후 사실적인 렌더링 이미지 출력</div>
-        </div>
-      </div>
-      <div class="app-card">
-        <div class="app-card-icon" style="background:#150035; border-radius:8px; overflow:hidden;">
-          	<img src="https://ffc-static-cdn.oobesaas.adobe.com/icons/SHPR/1.22.7/96x96.png" alt="Substance 3D Modeler" width="40" height="40">
-        </div>
-        <div>
-          <div class="app-card-name">Substance 3D Modeler</div>
-          <div class="app-card-desc">데스크톱·VR에서 직관적인 3D 스컬프팅 및 모델 제작</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- 활용 산업 -->
-    <div class="feature-grid" style="grid-template-columns: repeat(auto-fill, minmax(160px,1fr));">
-      <div class="feature-item" style="text-align:center; padding:16px;">
-        <div style="font-size:22px; margin-bottom:6px;">🎮</div>
-        <h4 style="font-size:13px;">게임</h4>
-        <p style="font-size:12px;">캐릭터·배경 에셋 제작</p>
-      </div>
-      <div class="feature-item" style="text-align:center; padding:16px;">
-        <div style="font-size:22px; margin-bottom:6px;">🎬</div>
-        <h4 style="font-size:13px;">영화 VFX</h4>
-        <p style="font-size:12px;">시각 효과·CG 장면</p>
-      </div>
-      <div class="feature-item" style="text-align:center; padding:16px;">
-        <div style="font-size:22px; margin-bottom:6px;">📦</div>
-        <h4 style="font-size:13px;">제품 디자인</h4>
-        <p style="font-size:12px;">3D 제품 시각화</p>
-      </div>
-      <div class="feature-item" style="text-align:center; padding:16px;">
-        <div style="font-size:22px; margin-bottom:6px;">🏗️</div>
-        <h4 style="font-size:13px;">건축</h4>
-        <p style="font-size:12px;">건축 인테리어 렌더링</p>
-      </div>
-      <div class="feature-item" style="text-align:center; padding:16px;">
-        <div style="font-size:22px; margin-bottom:6px;">👗</div>
-        <h4 style="font-size:13px;">패션</h4>
-        <p style="font-size:12px;">디지털 의류 시뮬레이션</p>
-      </div>
-      <div class="feature-item" style="text-align:center; padding:16px;">
-        <div style="font-size:22px; margin-bottom:6px;">🛒</div>
-        <h4 style="font-size:13px;">이커머스</h4>
-        <p style="font-size:12px;">가상 제품 사진 촬영</p>
+      <!-- 활용 산업 -->
+      <div class="feature-grid" style="grid-template-columns: repeat(auto-fill, minmax(160px,1fr));">
+        <div class="feature-item" style="text-align:center; padding:16px;">
+          <div style="font-size:22px; margin-bottom:6px;">🎮</div>
+          <h4 style="font-size:13px;">게임</h4>
+          <p style="font-size:12px;">캐릭터·배경 에셋 제작</p>
+        </div>
+        <div class="feature-item" style="text-align:center; padding:16px;">
+          <div style="font-size:22px; margin-bottom:6px;">🎬</div>
+          <h4 style="font-size:13px;">영화 VFX</h4>
+          <p style="font-size:12px;">시각 효과·CG 장면</p>
+        </div>
+        <div class="feature-item" style="text-align:center; padding:16px;">
+          <div style="font-size:22px; margin-bottom:6px;">📦</div>
+          <h4 style="font-size:13px;">제품 디자인</h4>
+          <p style="font-size:12px;">3D 제품 시각화</p>
+        </div>
+        <div class="feature-item" style="text-align:center; padding:16px;">
+          <div style="font-size:22px; margin-bottom:6px;">🏗️</div>
+          <h4 style="font-size:13px;">건축</h4>
+          <p style="font-size:12px;">건축 인테리어 렌더링</p>
+        </div>
+        <div class="feature-item" style="text-align:center; padding:16px;">
+          <div style="font-size:22px; margin-bottom:6px;">👗</div>
+          <h4 style="font-size:13px;">패션</h4>
+          <p style="font-size:12px;">디지털 의류 시뮬레이션</p>
+        </div>
+        <div class="feature-item" style="text-align:center; padding:16px;">
+          <div style="font-size:22px; margin-bottom:6px;">🛒</div>
+          <h4 style="font-size:13px;">이커머스</h4>
+          <p style="font-size:12px;">가상 제품 사진 촬영</p>
+        </div>
       </div>
     </div>
+  </section>
+
+
+  <div class="cta-banner" id="contact">
+    <div>
+      <h2>Adobe 제품 도입 문의</h2>
+      <p>규모·업종에 맞는 최적 라이선스를 전문 담당자가 무료로 안내해드립니다.</p>
+    </div>
+    <button class="btn-white" onclick="alert('상담 신청 페이지로 연결됩니다.')">견적 문의</button>
   </div>
-</section>
 
+  <script src="../js/common.js"></script>
+  <script>
+    const sections = ['cc-single', 'cct-pro', 'acrobat', 'substance'];
+    const tabBtns = document.querySelectorAll('.tab-btn');
 
-<!-- ── CTA BANNER ── -->
-<div class="cta-banner" id="contact">
-  <div>
-    <h2>Adobe 제품 도입 문의</h2>
-    <p>규모·업종에 맞는 최적 라이선스를 전문 담당자가 무료로 안내해드립니다.</p>
-  </div>
-  <button class="btn-white" onclick="alert('상담 신청 페이지로 연결됩니다.')">무료 상담 신청</button>
-</div>
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const offset = document.querySelector('.tab-nav').offsetHeight + 16;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    window.addEventListener('scroll', () => {
+      const navH = document.querySelector('.tab-nav').offsetHeight + 32;
+      let current = sections[0];
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= navH) current = id;
+      });
+      tabBtns.forEach((btn, i) => {
+        btn.classList.toggle('active', sections[i] === current);
+      });
+    }, { passive: true });
+  </script>
 </body>
 </html>

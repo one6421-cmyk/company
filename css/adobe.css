@@ -24,6 +24,70 @@
       line-height: 1.7;
     }
 
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #1a0a00 0%, #3D0A00 50%, #E8473F 100%);
+      padding: 80px 2rem 70px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 420px; height: 420px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 3rem; align-items: center;
+      position: relative;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.15);
+      color: #fff; font-size: 12px; padding: 5px 14px;
+      border-radius: 20px; margin-bottom: 1.25rem;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700; color: #fff;
+      line-height: 1.2; margin-bottom: 1rem;
+    }
+    .hero h1 em {
+      font-style: normal; color: #FFB3AE;
+    }
+    .hero-desc {
+      font-size: 16px; color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem; max-width: 520px; line-height: 1.8;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-hero-primary {
+      background: #fff; color: var(--red);
+      border: none; padding: 12px 26px;
+      border-radius: var(--radius-sm); font-size: 15px; font-weight: 600;
+      cursor: pointer; font-family: inherit;
+      transition: box-shadow 0.15s, transform 0.1s;
+    }
+    .btn-hero-primary:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.18); transform: translateY(-1px); }
+    .btn-hero-ghost {
+      background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.5); padding: 12px 26px;
+      border-radius: var(--radius-sm); font-size: 15px;
+      cursor: pointer; font-family: inherit;
+      transition: background 0.15s;
+    }
+    .btn-hero-ghost:hover { background: rgba(255,255,255,0.1); }
+    .hero-visual {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius-lg);
+      padding: 32px 36px; text-align: center; min-width: 180px;
+    }
+    .hero-visual-label { color: rgba(255,255,255,0.9); font-size: 15px; font-weight: 600; margin-top: 14px; margin-bottom: 4px; }
+    .hero-visual-sub { color: rgba(255,255,255,0.5); font-size: 12px; }
+
     /* ── STICKY TAB NAV ── */
     .tab-nav {
       position: sticky; top: 0; z-index: 100;
@@ -34,7 +98,7 @@
     }
     .tab-nav-inner {
       max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: stretch;
+      display: flex; align-items: center; justify-content: center;
       gap: 0; overflow-x: auto;
       scrollbar-width: none;
     }
@@ -57,6 +121,19 @@
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.5s ease both; }
+    .delay-2 { animation-delay: 0.2s; }
 
     /* ── WRAPPER ── */
     .wrapper { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
@@ -107,6 +184,9 @@
       transition: background 0.15s;
     }
     .btn-outline:hover { background: var(--red-light); }
+
+
+    
 
     /* 제품 비주얼 뱃지 */
     .product-badge {
