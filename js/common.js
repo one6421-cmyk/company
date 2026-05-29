@@ -66,16 +66,3 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 
-  < !--index.js-->
-
-
- const swiper = new Swiper('.swiper', {
-  spaceBetween: 6,
-  slidesOffsetBefore: 200,
-  slidesOffsetAfter: 200,
-  loop: true,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev"
-  }
-});
