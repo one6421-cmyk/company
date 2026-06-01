@@ -676,34 +676,5 @@
 </div>
 
 
-
-
-
-
-
-  <script>
-    const sections = ['cc-single', 'cct-pro', 'acrobat', 'substance'];
-    const tabBtns = document.querySelectorAll('.tab-btn');
-
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const offset = document.querySelector('.tab-nav').offsetHeight + 16;
-      const top = el.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-
-    window.addEventListener('scroll', () => {
-      const navH = document.querySelector('.tab-nav').offsetHeight + 32;
-      let current = sections[0];
-      sections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= navH) current = id;
-      });
-      tabBtns.forEach((btn, i) => {
-        btn.classList.toggle('active', sections[i] === current);
-      });
-    }, { passive: true });
-  </script>
 </body>
 </html>
