@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dropbox.css">
+    <script src="../js/common.js"></script>
+    
+    <title>Dropbox</title>
+    
+</head>
+<body>
+     <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-badge">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <circle cx="6" cy="6" r="5" stroke="white" stroke-width="1.2"/>
+            <path d="M4 6l1.5 1.5L8 4" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Dropbox 공식 파트너 솔루션
+        </div>
+        <h1>팀의 모든 파일을<br><em>한 곳에서</em> 안전하게</h1>
+        <p class="hero-desc">클라우드 스토리지부터 전자 서명, 팀 협업까지 — Dropbox Business로 어디서든 파일을 공유하고 보호하며 함께 일하세요.</p>
+        <div class="hero-btns"></div>
+      </div>
+      <div class="hero-visual fade-up delay-2">
+        <!-- Dropbox 로고 SVG -->
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <rect width="64" height="64" rx="14" fill="#0061FF"/>
+          <path d="M20 20l12 8-12 8-12-8 12-8z" fill="white"/>
+          <path d="M44 20l12 8-12 8-12-8 12-8z" fill="white" opacity="0.85"/>
+          <path d="M20 36l12 8 12-8-12-8-12 8z" fill="white" opacity="0.7"/>
+          <circle cx="32" cy="48" r="3" fill="white" opacity="0.6"/>
+        </svg>
+        <div class="hero-visual-label">Dropbox Business</div>
+        <div class="hero-visual-sub">공식 파트너 · 4개 플랜</div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ── STICKY TAB NAV ── -->
+  <nav class="tab-nav">
+    <div class="tab-nav-inner">
+      <button class="tab-btn active" onclick="scrollToSection('features')">
+        <div class="tab-icon" style="background:#0061FF;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="2" y="2" width="5" height="5" rx="1" fill="white"/>
+            <rect x="9" y="2" width="5" height="5" rx="1" fill="white" opacity="0.7"/>
+            <rect x="2" y="9" width="5" height="5" rx="1" fill="white" opacity="0.7"/>
+            <rect x="9" y="9" width="5" height="5" rx="1" fill="white" opacity="0.5"/>
+          </svg>
+        </div>
+        주요 기능
+      </button>
+      <button class="tab-btn" onclick="scrollToSection('plans')">
+        <div class="tab-icon" style="background:#0050D8;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="2" y="8" width="3" height="6" rx="1" fill="white"/>
+            <rect x="6.5" y="5" width="3" height="9" rx="1" fill="white" opacity="0.8"/>
+            <rect x="11" y="2" width="3" height="12" rx="1" fill="white" opacity="0.6"/>
+          </svg>
+        </div>
+        플랜
+      </button>
+      <button class="tab-btn" onclick="scrollToSection('contact')" style="
+        background:#0061FF; color:#fff; border-radius:20px;
+        padding:0 20px; margin:auto 0 auto 16px;
+        height:36px; border-bottom:none;">
+        견적 문의
+      </button>
+    </div>
+  </nav>
+ 
+ 
+  <!-- ══════════════════════════════════
+  01. 주요 기능
+  ══════════════════════════════════ -->
+  <section class="product-section" id="features">
+    <div class="wrapper">
+      <div class="section-header">
+        <div class="section-tag">
+          <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#0061FF"/></svg>
+          Dropbox Business
+        </div>
+        <h2 class="section-title">스마트한 협업을 위한<br>모든 기능이 한 곳에</h2>
+        <p class="section-desc">단순한 클라우드 스토리지를 넘어 팀의 파일 관리·공유·보안·전자 서명을 하나의 플랫폼에서 처리합니다.</p>
+      </div>
+ 
+      <!-- 핵심 기능 6개 -->
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#E8F0FF;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M11 3l8 5v8l-8 5-8-5V8z" stroke="#0061FF" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M7 11l2.5 2.5L15 8" stroke="#0061FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>스마트 동기화</h4>
+          <p>로컬 디스크 공간을 차지하지 않고 파일을 온라인 전용으로 설정. 필요할 때만 다운로드해 하드 드라이브 절약</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#E8F0FF;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="8" stroke="#0061FF" stroke-width="1.8"/>
+              <path d="M11 7v4l3 2" stroke="#0061FF" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>파일 버전 관리</h4>
+          <p>Standard 180일, Advanced 1년간 변경 이력 보관. 실수로 수정·삭제한 파일을 IT 도움 없이 즉시 복구</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#E8F0FF;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <rect x="4" y="6" width="14" height="11" rx="2" stroke="#0061FF" stroke-width="1.8"/>
+              <path d="M8 6V5a3 3 0 0 1 6 0v1" stroke="#0061FF" stroke-width="1.8"/>
+              <circle cx="11" cy="12" r="1.5" fill="#0061FF"/>
+            </svg>
+          </div>
+          <h4>보안 공유 링크</h4>
+          <p>만료일·비밀번호 설정, 본 사람 기록, 워터마크까지 — 링크 하나로 접근 권한을 세밀하게 제어</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#E8F0FF;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M6 11h10M11 6l5 5-5 5" stroke="#0061FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>대용량 파일 전송</h4>
+          <p>Dropbox Transfer로 이메일 첨부 한계 없이 대용량 파일 전송. 수신 확인 및 다운로드 횟수 제한 설정 가능</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#E8F0FF;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M7 11l3 3 5-5" stroke="#0061FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="3" y="5" width="16" height="12" rx="2.5" stroke="#0061FF" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <h4>전자 서명 (eSign)</h4>
+          <p>Dropbox 내에서 무제한 전자 서명 요청·발송. 법적 구속력 있는 서명을 별도 앱 없이 워크플로에 통합</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#E8F0FF;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#0061FF" stroke-width="1.8"/>
+              <rect x="12" y="3" width="7" height="7" rx="1.5" stroke="#0061FF" stroke-width="1.8"/>
+              <rect x="3" y="12" width="7" height="7" rx="1.5" stroke="#0061FF" stroke-width="1.8"/>
+              <rect x="12" y="12" width="7" height="7" rx="1.5" stroke="#0061FF" stroke-width="1.8" opacity="0.4"/>
+            </svg>
+          </div>
+          <h4>관리 콘솔</h4>
+          <p>팀원 추가·권한 설정·장치 관리를 한 화면에서. 감사 로그로 데이터 공유 현황을 상세하게 추적</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#E8F0FF;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M4 17l4-4 3 3 7-8" stroke="#0061FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>Dropbox Replay (영상 협업)</h4>
+          <p>영상·오디오 파일에 시간 지정 댓글 및 승인 워크플로. 반복 회의 없이 비디오 프로젝트 피드백 간소화</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#E8F0FF;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M11 4C7.1 4 4 7.1 4 11s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7z" stroke="#0061FF" stroke-width="1.8"/>
+              <path d="M8.5 11l2 2 3-3" stroke="#0061FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>원격 장치 삭제</h4>
+          <p>분실·도난 기기에서 Dropbox 파일 원격 삭제. 퇴사자 장치 접근 차단까지 관리자가 즉시 처리</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#E8F0FF;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M4 11c0-3.9 3.1-7 7-7s7 3.1 7 7-3.1 7-7 7" stroke="#0061FF" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M11 15v4M9 19h4" stroke="#0061FF" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>외부 앱 연동</h4>
+          <p>Slack·Microsoft Teams·Google Workspace·Zoom 등 300개+ 앱과 연동. 기존 업무 툴에 Dropbox를 자연스럽게 통합</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#E8F0FF;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M11 3l8 5v8l-8 5-8-5V8z" stroke="#0061FF" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M11 3v14M3 8l8 5 8-5" stroke="#0061FF" stroke-width="1.3" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+          </div>
+          <h4>컴퓨터 백업</h4>
+          <p>바탕화면·문서·다운로드 폴더 자동 백업. 기기 교체나 장애 시에도 데이터 손실 없이 즉시 복원</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#E8F0FF;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <rect x="5" y="3" width="12" height="16" rx="2" stroke="#0061FF" stroke-width="1.8"/>
+              <path d="M8 8h6M8 11h6M8 14h4" stroke="#0061FF" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>PDF 편집·서명</h4>
+          <p>Dropbox 내에서 PDF 준비·편집·전자 서명을 원스톱 처리. 계약서·문서 워크플로를 단일 플랫폼에서 완결</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item-icon" style="background:#E8F0FF;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <rect x="3" y="8" width="16" height="11" rx="2" stroke="#0061FF" stroke-width="1.8"/>
+              <path d="M8 8V6a3 3 0 0 1 6 0v2" stroke="#0061FF" stroke-width="1.8"/>
+              <path d="M9 14h4" stroke="#0061FF" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Dropbox Vault</h4>
+          <p>가장 민감한 파일을 별도 보호 공간에 저장. PIN 설정과 신뢰 연락처 공유로 중요 문서를 이중 보호</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+ 
+  <!-- ══════════════════════════════════
+  02. 플랜
+  ══════════════════════════════════ -->
+  <section class="product-section" id="plans">
+    <div class="wrapper">
+      <div class="section-header">
+        <div class="section-tag">
+          <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#0061FF"/></svg>
+          Dropbox 플랜
+        </div>
+        <h2 class="section-title">팀 규모에 맞는<br>최적의 플랜을 선택하세요</h2>
+        <p class="section-desc">Essentials부터 Business, Advanced까지 — 스토리지 용량, 보안, 관리 수준을 기준으로 적합한 플랜을 고르세요.</p>
+      </div>
+ 
+      <!-- 플랜 카드 4종 -->
+      <div class="plan-grid">
+ 
+        <!-- Essentials -->
+        <div class="plan-card">
+          <div class="plan-icon" style="background:#E8F0FF;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <circle cx="14" cy="14" r="10" stroke="#0061FF" stroke-width="2"/>
+              <path d="M10 14l3 3 5-5" stroke="#0061FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="plan-name">Essentials</div>
+          <div class="plan-target">1인 전문가용</div>
+          <div class="plan-storage">3TB</div>
+          <div class="plan-storage-sub">개인 저장 공간</div>
+          <hr class="plan-divider">
+          <ul class="plan-features">
+            <li>스마트 동기화</li>
+            <li>파일 버전 관리 (180일)</li>
+            <li>무제한 전자 서명</li>
+            <li>Dropbox Transfer</li>
+            <li>컴퓨터 백업</li>
+            <li>보안 공유 링크</li>
+          </ul>
+        </div>
+ 
+        <!-- Business -->
+        <div class="plan-card featured">
+          <div class="plan-badge-label">팀 추천</div>
+          <div class="plan-icon" style="background:#E8F0FF;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <path d="M14 4l10 6v12l-10 6-10-6V10z" fill="none" stroke="#0061FF" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M14 4v12M4 10l10 6 10-6M14 16v8" stroke="#0061FF" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="plan-name">Business</div>
+          <div class="plan-target">팀용 (3인 이상)</div>
+          <div class="plan-storage">9TB~</div>
+          <div class="plan-storage-sub">팀 공유 (라이선스당 3TB)</div>
+          <hr class="plan-divider">
+          <ul class="plan-features">
+            <li>Essentials 전체 기능</li>
+            <li>팀 공유 스토리지</li>
+            <li>무제한 전자 서명 + 템플릿 15개</li>
+            <li>팀 관리 콘솔</li>
+            <li>외부 공유 제어</li>
+            <li>감사 로그 (기본)</li>
+            <li>팀 활동 보고서</li>
+          </ul>
+        </div>
+ 
+        <!-- Business Plus -->
+        <div class="plan-card">
+          <div class="plan-icon" style="background:#EEF4FF;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <rect x="4" y="4" width="9" height="9" rx="2" fill="#0061FF" opacity="0.8"/>
+              <rect x="15" y="4" width="9" height="9" rx="2" fill="#0061FF" opacity="0.5"/>
+              <rect x="4" y="15" width="9" height="9" rx="2" fill="#0061FF" opacity="0.5"/>
+              <rect x="15" y="15" width="9" height="9" rx="2" fill="#0061FF" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="plan-name">Business Plus</div>
+          <div class="plan-target">팀용 (3인 이상)</div>
+          <div class="plan-storage">15TB~</div>
+          <div class="plan-storage-sub">팀 공유 (라이선스당 5TB)</div>
+          <hr class="plan-divider">
+          <ul class="plan-features">
+            <li>Business 전체 기능</li>
+            <li>파일 버전 관리 (1년)</li>
+            <li>고급 감사 로그</li>
+            <li>고급 보안 제어·알림</li>
+            <li>관리자 역할 세분화</li>
+            <li>우선 기술 지원</li>
+          </ul>
+        </div>
+ 
+        <!-- Advanced (Enterprise) -->
+        <div class="plan-card">
+          <div class="plan-icon" style="background:#EEF4FF;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <path d="M14 3l11 6.5v11L14 26 3 20.5v-11z" fill="none" stroke="#0050D8" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="14" cy="14" r="4" fill="#0050D8" opacity="0.8"/>
+            </svg>
+          </div>
+          <div class="plan-name">Advanced (Enterprise)</div>
+          <div class="plan-target">대규모 조직·맞춤형</div>
+          <div class="plan-storage">무제한</div>
+          <div class="plan-storage-sub">사용자 지정 용량</div>
+          <hr class="plan-divider">
+          <ul class="plan-features">
+            <li>Business Plus 전체 기능</li>
+            <li>무제한 스토리지 협의</li>
+            <li>SSO·SAML 통합</li>
+            <li>도메인 인사이트</li>
+            <li>전담 계정 관리자</li>
+            <li>맞춤형 계약 및 SLA</li>
+          </ul>
+        </div>
+      </div>
+ 
+      <!-- 플랜 비교표 -->
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>기능</th>
+            <th>Essentials</th>
+            <th>Business</th>
+            <th class="th-highlight">Business Plus</th>
+            <th>Advanced</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>스토리지</td>
+            <td>3TB</td>
+            <td>9TB~</td>
+            <td>15TB~</td>
+            <td>무제한</td>
+          </tr>
+          <tr>
+            <td>파일 버전 관리</td>
+            <td>180일</td>
+            <td>180일</td>
+            <td>1년</td>
+            <td>1년+</td>
+          </tr>
+          <tr>
+            <td>전자 서명 (무제한)</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>팀 관리 콘솔</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>감사 로그</td>
+            <td><span class="dash">—</span></td>
+            <td>기본</td>
+            <td>고급</td>
+            <td>고급+</td>
+          </tr>
+          <tr>
+            <td>고급 보안 제어·알림</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>SSO·SAML 통합</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>전담 계정 관리자</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>최소 라이선스</td>
+            <td>1명</td>
+            <td>3명</td>
+            <td>3명</td>
+            <td>협의</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+ 
+ 
+  <!-- ── CTA ── -->
+  <div class="cta-section" id="contact">
+    <div class="cta-inner">
+      <div>
+        <h2>Dropbox Business 도입 문의</h2>
+        <p>팀 규모·업종에 맞는 최적 플랜을 전문 담당자가 무료로 안내해드립니다.</p>
+      </div>
+      <div class="cta-btns">
+        <button class="btn-ghost">견적 문의</button>
+      </div>
+    </div>
+  </div>
+ 
+</body>
+</html>

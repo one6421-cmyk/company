@@ -139,7 +139,7 @@
     .wrapper { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
     /* ── PRODUCT SECTION ── */
-    .product-section { padding: 64px 0; }
+    .product-section { padding: 64px 0 !important; }
     .product-section + .product-section {
       border-top: 1px solid var(--border);
     }
