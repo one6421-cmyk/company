@@ -1,0 +1,79 @@
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --s1-purple: #6B2FBF;
+  --s1-purple-dark: #4A1A9E;
+  --s1-purple-light: #F0E8FF;
+  --text-primary: #1a1a2e;
+  --text-secondary: #555;
+  --text-muted: #888;
+  --bg: #f8f9fc;
+  --surface: #fff;
+  --border: #e5e8ef;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.07);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.09);
+}
+
+body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.7; }
+
+.hero { background: linear-gradient(135deg, #1A0A3E 0%, #2D1B4E 55%, #9d6fdd 100%); padding: 80px 2rem 70px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 440px; height: 440px; background: radial-gradient(circle, rgba(107,47,191,0.2) 0%, transparent 70%); border-radius: 50%; }
+.hero::after  { content: ''; position: absolute; bottom: -100px; left: 5%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%); border-radius: 50%; }
+.hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; position: relative; }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.15); color: #fff; font-size: 12px; padding: 5px 14px; border-radius: 20px; margin-top: 4rem; margin-bottom: 1.25rem; border: 1px solid rgba(255,255,255,0.25); }
+.hero h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1rem; }
+.hero h1 em { font-style: normal; color: #C4A8FF; }
+.hero-desc { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 2rem; max-width: 520px; line-height: 1.8; }
+.hero-visual { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-lg); padding: 28px 32px; text-align: center; width: 220px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.hero-visual img, .hero-visual > svg { width: 160px !important; height: 140px !important; display: block; object-fit: contain; }
+.hero-visual-label { color: rgba(255,255,255,0.9); font-size: 15px; font-weight: 600; margin-top: 14px; margin-bottom: 4px; }
+.hero-visual-sub { color: rgba(255,255,255,0.5); font-size: 12px; }
+
+.wrapper { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+.product-section { padding: 72px 0; }
+.product-section + .product-section { border-top: 1px solid var(--border); }
+
+.section-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--s1-purple); margin-bottom: 10px; }
+.section-title { font-size: clamp(22px, 3vw, 34px); font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+.section-desc { font-size: 15px; color: var(--text-secondary); max-width: 680px; line-height: 1.8; }
+.section-label { font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.6px; }
+
+.include-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
+.include-chip { display: flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid var(--border); background: var(--surface); color: var(--text-secondary); }
+.include-chip svg { flex-shrink: 0; }
+
+.app-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-bottom: 40px; align-items: stretch; }
+.app-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; display: flex; gap: 14px; align-items: flex-start; transition: box-shadow 0.15s; min-width: 0; }
+.app-card:hover { box-shadow: var(--shadow-md); }
+.app-card > div:last-child { flex: 1; min-width: 0; }
+.app-card-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 9px; font-weight: 700; color: #fff; text-align: center; line-height: 1.3; }
+.app-card-name { font-size: 14px; font-weight: 600; margin-bottom: 5px; }
+.app-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; word-break: break-all; overflow-wrap: break-word; }
+
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; margin-bottom: 40px; }
+.feature-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 22px; transition: box-shadow 0.15s, transform 0.15s; }
+.feature-item:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.feature-item-icon { width: 38px; height: 38px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.feature-item h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.feature-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+.industry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin-bottom: 40px; }
+.industry-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px; text-align: center; transition: box-shadow 0.15s; }
+.industry-card:hover { box-shadow: var(--shadow-sm); }
+.industry-card div:first-child { font-size: 26px; margin-bottom: 8px; }
+.industry-card h4 { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+.industry-card p { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .app-list { grid-template-columns: 1fr; }
+}
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.fade-up { animation: fadeUp 0.5s ease both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
