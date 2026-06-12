@@ -1,0 +1,229 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root { --teal: #44a9d1; }
+
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ── 폰트 프리텐다드 및 기본 바디 화이트 설정 ── */
+html, body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    background: #fff;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── 1번 히어로 섹션 ── */
+.hero-pin-wrap {
+    position: relative;
+    z-index: 1; 
+}
+.s-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    overflow: hidden;
+}
+.hero-img-wrap {
+    position: absolute;
+    left: 20px;
+    top: calc(50vh - 28.2vh);
+    width: calc(100% - 40px);
+    height: 56.4vh;
+    border-radius: 43px;
+    overflow: hidden;
+    background: #000;
+    will-change: left, top, width, height, border-radius;
+}
+.hero-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.hero-dim {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.1); /* 🔥 화이트 감성을 위해 어두운 딤을 걷어내고 밝게 조절 */
+    opacity: 0;
+}
+
+/* 💡 [수정] 자막 정렬 및 화이트 모드 가독성 확보 */
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+    pointer-events: none;
+    z-index: 5;
+}
+.hero-text .t1, .hero-text .t2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    width: 100%;
+    font-size: 4vw; 
+    font-weight: 800;
+    line-height: 1.4;
+    color: #1a1a1a; /* 🔥 흰색(#fff)에서 선명한 블랙 계열로 변경하여 텍스트 노출 성공 */
+    display: block !important;
+    text-align: center;
+    white-space: nowrap; 
+    opacity: 0;
+    letter-spacing: -0.02em; 
+}
+
+/* ── 2번 섹션 ── */
+.s-hl {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    background-color: #fff; /* 🔥 화이트 배경으로 전면 수정 */
+    margin-top: 0; /* 🔥 겹침 오류를 유발하는 -100vh 제거 */
+    z-index: 10; 
+}
+.hl-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hl-brand {
+    font-size: 6vw;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: -0.01em;
+    margin-bottom: 2.5rem;
+}
+.hl-char {
+    color: #e2e8f0; /* 🔥 안 켜졌을 때 세련된 연회색 처리 */
+}
+.hl-sub-wrap {
+    text-align: center;
+}
+.hl-sub {
+    margin-bottom: 1rem;
+}
+.hl-sub .word {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 4px;
+    display: inline-block;
+    color: #e2e8f0; /* 🔥 안 켜진 일반 글씨 연회색 */
+    letter-spacing: -0.02em;
+}
+
+/* ── 3번 섹션 ── */
+.s-ceo {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 15;
+    overflow: hidden;
+}
+.ceo-inner {
+    width: 100%;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+.ceo-left {
+    width: 52%;
+    color: #1a1a1a;
+}
+
+/* 💡 [수정] 화이트 모드 맞춤 텍스트 색상 채우기 그라데이션 */
+.ceo-title {
+    font-size: 3.2vw;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+
+    /* 🔥 안 켜졌을 때 투명하게 사라지지 않도록 베이스를 #e2e8f0(연회색)으로 매칭 */
+    background: linear-gradient(to right, #0033ff 50%, #e2e8f0 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0; 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.1s linear;
+}
+.cn-ceo-quote {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0033ff; /* 브레인올 포인트 블루 컬러 활용 */
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.cn-ceo-body p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #555555;
+    margin-bottom: 1.2rem;
+}
+.cn-ceo-body {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* 💡 [수정] 대표 이름 가로 일렬 나열 스펙 완성 */
+.cn-ceo-sig {
+    align-items: center;
+    margin-top: 3rem;
+    display: flex;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.cn-ceo-sig .sig-title {
+    font-size: 1.1rem;
+    color: #555555;
+    font-weight: 500;
+    margin-right: 14px; /* 타이틀과 이름 사이 간격 지정 */
+}
+.cn-ceo-sig .sig-name {
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+/* 오른쪽 이미지 영역 */
+.ceo-right {
+    width: 42%;
+    position: relative;
+    height: 65vh;
+    display: flex;
+    gap: 20px;
+}
+.img-box {
+    flex: 1;
+    border-radius: 24px;
+    overflow: hidden;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(60px);
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.04); /* 화이트 모드에 어울리는 소프트 그림자 */
+}
+.img1 { transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+.img2 { transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.15s; }
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
