@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ═══════════════════════════════════════════
+   순차 프로세스 애니메이션
+   ═══════════════════════════════════════════ */
+
+/* 프로세스 아이템 사이 연결선 */
+.ab2-biz-process {
+    position: relative;
+}
+
+/* 연결선 (아이템 사이) */
+.ab2-proc-item {
+    position: relative;
+}
+
+.ab2-proc-item::after {
+    content: '';
+    position: absolute;
+    top: 75px;
+    right: -30%;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, #1a5276, #2980b9);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+}
+
+.ab2-proc-item:last-child::after {
+    display: none;
+}
+
+/* ── 원 애니메이션 ── */
+.ab2-proc-circle {
+    position: relative;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* 초기 상태: 숨김 */
+.ab2-proc-item.seq-animate .ab2-proc-circle {
+    opacity: 0;
+    transform: scale(0.3);
+}
+
+/* 활성화: 팝업 등장 */
+.ab2-proc-item.seq-active .ab2-proc-circle {
+    opacity: 1;
+    transform: scale(1);
+    animation: circlePop 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes circlePop {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(-10deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15) rotate(3deg);
+    }
+    70% {
+        transform: scale(0.95) rotate(-1deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* ── 원 테두리 회전 링 ── */
+.ab2-proc-circle::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 50%;
+    border: 2px dashed rgba(41, 128, 185, 0.4);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.ab2-proc-item.seq-active .ab2-proc-circle::before {
+    opacity: 1;
+    animation: spinRing 8s linear infinite;
+}
+
+@keyframes spinRing {
+    to { transform: rotate(360deg); }
+}
+
+/* ── 펄스 이펙트 (현재 진행중 표시) ── */
+.ab2-proc-circle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(41, 128, 185, 0.6);
+    opacity: 0;
+}
+
+.ab2-proc-item.seq-current .ab2-proc-circle::after {
+    animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 0.8;
+    }
+    100% {
+        width: 150%;
+        height: 150%;
+        opacity: 0;
+    }
+}
+
+/* ── 텍스트 순차 등장 ── */
+.ab2-proc-item.seq-animate .ab2-proc-name {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.ab2-proc-item.seq-active .ab2-proc-name {
+    animation: textSlideUp 0.6s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.ab2-proc-item.seq-animate .ab2-proc-list {
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.ab2-proc-item.seq-active .ab2-proc-list {
+    animation: textSlideUp 0.6s ease forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes textSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── 리스트 아이템 개별 등장 ── */
+.ab2-proc-item.seq-animate .ab2-proc-list span {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.ab2-proc-item.seq-active .ab2-proc-list span {
+    animation: listItemIn 0.4s ease forwards;
+}
+
+.ab2-proc-item.seq-active .ab2-proc-list span:nth-child(1) {
+    animation-delay: 0.6s;
+}
+.ab2-proc-item.seq-active .ab2-proc-list span:nth-child(2) {
+    animation-delay: 0.75s;
+}
+.ab2-proc-item.seq-active .ab2-proc-list span:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+@keyframes listItemIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ── 연결선 순차 진행 ── */
+.ab2-proc-item.seq-active::after {
+    transform: scaleX(1);
+    transition-delay: 0.4s;
+}
+
+/* ── 번호 카운트업 효과 ── */
+.ab2-proc-item.seq-active .ab2-proc-num {
+    animation: numBounce 0.5s ease 0.2s;
+}
+
+@keyframes numBounce {
+    0%, 100% { transform: scale(1); }
+    30% { transform: scale(1.4); }
+    60% { transform: scale(0.9); }
+}
+
+/* ── 아이콘 회전 등장 ── */
+.ab2-proc-item.seq-animate .ab2-proc-circle svg {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+}
+
+.ab2-proc-item.seq-active .ab2-proc-circle svg {
+    animation: iconSpin 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.15s forwards;
+}
+
+@keyframes iconSpin {
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+/* ── 완료 상태 체크 표시 ── */
+.ab2-proc-item.seq-done .ab2-proc-circle {
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.3);
+}
+
+.ab2-proc-item.seq-done .ab2-proc-num::after {
+    content: '✓';
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    font-size: 12px;
+    color: #2ecc71;
+    font-weight: bold;
+    animation: checkPop 0.3s ease;
+}
+
+@keyframes checkPop {
+    0% { transform: scale(0); }
+    60% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+.ab2-proc-num {
+    position: relative;
+}
+
+/* ── 프로세스 진행 바 (전체 하단) ── */
+.ab2-biz-process-progress {
+    width: 100%;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    margin-top: 30px;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.ab2-biz-process-progress.visible {
+    opacity: 1;
+}
+
+.ab2-biz-process-progress .bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #1a5276, #2980b9, #3498db);
+    border-radius: 2px;
+    transition: width 0.6s ease;
+    position: relative;
+}
+
+.ab2-biz-process-progress .bar::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -3px;
+    width: 10px;
+    height: 10px;
+    background: #3498db;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.6);
+}
+
+/* ── 호버 인터랙션 강화 ── */
+.ab2-proc-item.seq-active:hover .ab2-proc-circle {
+    transform: scale(1.08) translateY(-5px);
+    box-shadow: 0 15px 40px rgba(41, 128, 185, 0.3);
+}
+
+.ab2-proc-item.seq-active:hover .ab2-proc-circle svg {
+    animation: iconFloat 1.5s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* ── 반복 재생 시 리셋 트랜지션 ── */
+.ab2-proc-item.seq-reset .ab2-proc-circle {
+    transition: all 0.3s ease;
+}
+
+.ab2-proc-item.seq-reset .ab2-proc-name,
+.ab2-proc-item.seq-reset .ab2-proc-list,
+.ab2-proc-item.seq-reset .ab2-proc-list span,
+.ab2-proc-item.seq-reset .ab2-proc-circle svg {
+    transition: all 0.3s ease;
+}
+    </style>
+
+</head>
+<body>
+<!-- 컨설팅 프로세스 -->
+<div class="ab2-fade">
+    <div class="ab2-biz-process-title">License Consulting</div>
+    <div class="ab2-biz-process-desc">클라우드넷코리아는 다양한 IT 환경에 대한 이해를 바탕으로 고객에게 최적의 소프트웨어 솔루션과 전문 컨설팅 서비스를 제공합니다.</div>
+</div>
+
+<div class="ab2-biz-process" id="processFlow">
+    <div class="ab2-proc-item" data-step="1">
+        <div class="ab2-proc-circle">
+            <div class="ab2-proc-num">01</div>
+            <!-- 기존 SVG 그대로 -->
+            <svg fill="#ffffff" height="40px" width="40px" viewBox="0 0 359.448 359.448" xmlns="http://www.w3.org/2000/svg">
+                <path d="M354.724,171.16c0-26.69-14.734-49.991-36.486-62.236C304.906,46.92,245,0,173.319,0C97.486,0,34.83,52.514,26.559,119.847C13.112,132.835,4.724,151.031,4.724,171.16c0,39.358,32.021,71.379,71.379,71.379c2.762,0,5-2.239,5-5v-132.76c0-2.761-2.238-5-5-5c-3.361,0-6.664,0.25-9.904,0.703c15.92-38.884,57.928-66.729,107.12-66.729c49.269,0,91.329,27.933,107.192,66.913c-1.307,0.902-2.166,2.407-2.166,4.114v132.76c0,2.761,2.238,5,5,5c1.654,0,3.289-0.077,4.915-0.188c-11.071,34.443-41.038,61.811-79.183,72.519c-4.566-7.385-12.735-12.309-22.056-12.309h-27.404c-14.312,0-25.917,11.603-25.917,25.916v5.054c0,14.314,11.605,25.918,25.917,25.918h27.404c13.065,0,23.87-9.672,25.653-22.247c51.311-13.492,90.777-52.673,100.435-101.19C337.644,224.705,354.724,199.897,354.724,171.16z"/>
+            </svg>
+        </div>
+        <div class="ab2-proc-name">상담 및 요구사항 접수</div>
+        <div class="ab2-proc-list">
+            <span>고객 문의 접수</span>
+            <span>업무 환경 파악</span>
+            <span>제품 및 라이선스 상담</span>
+        </div>
+    </div>
+
+    <div class="ab2-proc-item" data-step="2">
+        <div class="ab2-proc-circle">
+            <div class="ab2-proc-num">02</div>
+            <svg width="40" height="40" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#ffffff" d="M 16 2 C 14.742188 2 13.847656 2.890625 13.40625 4 L 5 4 L 5 29 L 27 29 L 27 4 L 18.59375 4 C 18.152344 2.890625 17.257813 2 16 2 Z M 16 4 C 16.554688 4 17 4.445313 17 5 L 17 6 L 20 6 L 20 8 L 12 8 L 12 6 L 15 6 L 15 5 C 15 4.445313 15.445313 4 16 4 Z M 7 6 L 10 6 L 10 10 L 22 10 L 22 6 L 25 6 L 25 27 L 7 27 Z M 21.28125 13.28125 L 15 19.5625 L 11.71875 16.28125 L 10.28125 17.71875 L 14.28125 21.71875 L 15 22.40625 L 15.71875 21.71875 L 22.71875 14.71875 Z"/>
+            </svg>
+        </div>
+        <div class="ab2-proc-name">환경 분석 및 제안</div>
+        <div class="ab2-proc-list">
+            <span>운영 환경 분석</span>
+            <span>적합 솔루션 검토</span>
+            <span>최적의 구성 및 견적 제안</span>
+        </div>
+    </div>
+
+    <div class="ab2-proc-item" data-step="3">
+        <div class="ab2-proc-circle">
+            <div class="ab2-proc-num">03</div>
+            <svg width="40" height="40" fill="#fff" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 6 3 L 6 29 L 26 29 L 26 9.5996094 L 25.699219 9.3007812 L 19.699219 3.3007812 L 19.400391 3 L 6 3 z M 8 5 L 18 5 L 18 11 L 24 11 L 24 27 L 8 27 L 8 5 z M 20 6.4003906 L 22.599609 9 L 20 9 L 20 6.4003906 z M 10 13 L 10 15 L 22 15 L 22 13 L 10 13 z"/>
+            </svg>
+        </div>
+        <div class="ab2-proc-name">계약 및 공급</div>
+        <div class="ab2-proc-list">
+            <span>구매 절차 진행</span>
+            <span>라이선스 발급 및 공급</span>
+            <span>구축 및 적용 지원</span>
+        </div>
+    </div>
+
+    <div class="ab2-proc-item" data-step="4">
+        <div class="ab2-proc-circle">
+            <div class="ab2-proc-num">04</div>
+            <svg width="40" height="40" fill="#ffffff" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                <path d="m 8.9994537,13.238438 c -0.0393,-0.07725 -0.213095,-0.409163 -0.386333,-0.73767..."/>
+            </svg>
+        </div>
+        <div class="ab2-proc-name">운영 및 사후지원</div>
+        <div class="ab2-proc-list">
+            <span>기술 지원 제공</span>
+            <span>라이선스 갱신 관리</span>
+            <span>교육 및 유지보수 지원</span>
+        </div>
+    </div>
+</div>
+ 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const process = document.querySelector('#processFlow');
+    if (!process) return;
+
+    const items = [...process.querySelectorAll('.ab2-proc-item')];
+    if (!items.length) return;
+
+    // 진행바 생성
+    const progressWrap = document.createElement('div');
+    progressWrap.className = 'ab2-biz-process-progress';
+
+    const progressBar = document.createElement('div');
+    progressBar.className = 'bar';
+
+    progressWrap.appendChild(progressBar);
+
+    process.parentNode.insertBefore(
+        progressWrap,
+        process.nextSibling
+    );
+
+    let timers = [];
+    let playing = false;
+
+    // 초기화
+    function init() {
+
+        timers.forEach(clearTimeout);
+        timers = [];
+
+        items.forEach(item => {
+            item.classList.remove(
+                'seq-active',
+                'seq-current',
+                'seq-done',
+                'seq-reset'
+            );
+
+            item.classList.add('seq-animate');
+        });
+
+        progressBar.style.width = '0%';
+        progressWrap.classList.remove('visible');
+    }
+
+    // 실행
+    function play() {
+
+        if (playing) return;
+
+        playing = true;
+
+        init();
+
+        requestAnimationFrame(() => {
+            progressWrap.classList.add('visible');
+        });
+
+        items.forEach((item, index) => {
+
+            const timer = setTimeout(() => {
+
+                if (index > 0) {
+                    items[index - 1].classList.remove('seq-current');
+                    items[index - 1].classList.add('seq-done');
+                }
+
+                item.classList.add(
+                    'seq-active',
+                    'seq-current'
+                );
+
+                progressBar.style.width =
+                    ((index + 1) / items.length) * 100 + '%';
+
+                if (index === items.length - 1) {
+
+                    setTimeout(() => {
+                        item.classList.remove('seq-current');
+                        item.classList.add('seq-done');
+                    }, 700);
+
+                }
+
+            }, index * 1200);
+
+            timers.push(timer);
+
+        });
+
+    }
+
+    // 리셋
+    function reset() {
+
+        timers.forEach(clearTimeout);
+        timers = [];
+
+        items.forEach(item => {
+            item.classList.remove(
+                'seq-active',
+                'seq-current',
+                'seq-done'
+            );
+
+            item.classList.add('seq-reset');
+        });
+
+        progressBar.style.width = '0%';
+        progressWrap.classList.remove('visible');
+
+        setTimeout(() => {
+
+            items.forEach(item => {
+                item.classList.remove('seq-reset');
+            });
+
+            playing = false;
+
+        }, 300);
+
+    }
+
+    // 스크롤 감지
+    const observer = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (
+                    entry.isIntersecting &&
+                    !playing
+                ) {
+
+                    setTimeout(play, 300);
+
+                }
+
+                if (
+                    !entry.isIntersecting &&
+                    playing
+                ) {
+
+                    reset();
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.35
+        }
+    );
+
+    observer.observe(process);
+
+    init();
+
+    // 제목 클릭 재생
+    const title =
+        document.querySelector(
+            '.ab2-biz-process-title'
+        );
+
+    if (title) {
+
+        title.style.cursor = 'pointer';
+
+        title.addEventListener(
+            'click',
+            () => {
+
+                reset();
+
+                setTimeout(
+                    play,
+                    400
+                );
+
+            }
+        );
+
+    }
+
+});
+</script>
+
+</body>
+</html>
