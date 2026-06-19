@@ -169,6 +169,10 @@
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 10px;
     }
+    .ms-app-icon img {
+  object-fit: contain;
+  display: block;  
+}
     .ms-app-name { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
     .ms-app-desc { font-size: 14px; color: var(--text-muted); line-height: 1.4; }
  

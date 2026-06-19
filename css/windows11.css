@@ -110,7 +110,7 @@
     }
     .section-desc {
       font-size: 15px; color: var(--text-secondary);
-      max-width: 600px; margin-bottom: 2.5rem; line-height: 1.8;
+      max-width: 800px; margin-bottom: 2.5rem; line-height: 1.8;
     }
     .surface-white { background: #fff; }
 

@@ -16,7 +16,8 @@
       --shadow-sm: 0 1px 4px rgba(0,0,0,0.07);
       --shadow-md: 0 4px 20px rgba(0,0,0,0.09);
     }
-
+p, h1, h2, h3 {
+    word-break: keep-all;}
     body {
       font-family: 'Noto Sans KR', sans-serif;
       background: var(--bg);
@@ -284,7 +285,7 @@
     /* ── APP LIST (Substance 3D) ── */
     .app-list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
       gap: 14px; margin-bottom: 32px;
     }
     .app-card {
@@ -302,7 +303,7 @@
       flex-shrink: 0;
     }
     .app-card-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-    .app-card-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+    .app-card-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.5;  word-break: keep-all;}
 
     /* ── SECTION DIVIDER ── */
     .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0 0; }

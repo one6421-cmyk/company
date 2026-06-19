@@ -1,140 +1,116 @@
-(function () {
+window.addEventListener('DOMContentLoaded', function () {
+  gsap.registerPlugin(ScrollTrigger);
 
-    // ── vh 변수 설정 ──
-    function setVh() {
-        document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
-    }
-    setVh();
-    window.addEventListener('resize', setVh);
+  var lenis = new Lenis({ lerp: 0.07 });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+  gsap.ticker.lagSmoothing(0);
 
-    // GSAP + ScrollTrigger 등록
-    gsap.registerPlugin(ScrollTrigger);
+  // ── [1번 히어로 섹션 애니메이션 - 화이트 바탕] ──
+  var pinWrap = document.querySelector('.hero-pin-wrap');
+  var imgWrap = document.querySelector('.hero-img-wrap');
+  var dim = document.querySelector('.hero-dim');
+  var t1el = document.querySelector('.t1');
+  var t2el = document.querySelector('.t2');
 
-    // ══ 1번 섹션 ══
-    const heroSec   = document.querySelector('.cn-hero-sec');
-    const visualImg = document.querySelector('.cn-visual-img');
-    const visualDim = document.querySelector('.cn-visual-dim');
-    const r1 = document.querySelector('.cn-reveal-1');
-    const r2 = document.querySelector('.cn-reveal-2');
+  if (pinWrap) {
+    var sp1 = new SplitType(t1el, { types: 'chars' });
+    var sp2 = new SplitType(t2el, { types: 'chars' });
+    gsap.set(sp1.chars, { opacity: 0, y: 50 });
+    gsap.set(sp2.chars, { opacity: 0, y: 50 });
 
-    if (heroSec && visualImg) {
+    var tl1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: pinWrap,
+        start: 'top top',
+        end: '+=3000',
+        scrub: 1,
+        pin: true
+      }
+    });
+    tl1.to(imgWrap, { left: 0, top: 0, width: '100%', height: '100%', borderRadius: 0, ease: 'power1.inOut', duration: 2.0 }, 0)
+      .to(dim, { opacity: 0.5, duration: 1.5 }, 0.2)
+      .set(t1el, { opacity: 1 }, 2.0)
+      .to(sp1.chars, { opacity: 1, y: 0, ease: 'power3.out', stagger: 0.08, duration: 1.5 }, 2.2)
+      .to({}, { duration: 2.0 })
+      .to(sp1.chars, { opacity: 0, y: -50, ease: 'power3.in', stagger: 0.04, duration: 1.0 })
+      .set(t1el, { opacity: 0 })
+      .set(t2el, { opacity: 1 })
+      .to(sp2.chars, { opacity: 1, y: 0, ease: 'power3.out', stagger: 0.08, duration: 1.8 })
+      .to({}, { duration: 2.5 });
+  }
 
-        // SplitType: 글로벌 클래스는 SplitType (대문자)
-        let words1 = [], words2 = [];
+  // ── [🔥 2번 브랜드 하이라이트 섹션 애니메이션 - 독독 블랙 모드] ──
+  var hlSec = document.querySelector('.s-hl');
+  var hlBrand = document.querySelector('.hl-brand');
 
-        if (r1) {
-            const s1 = new SplitType(r1, { types: 'words' });
-            words1 = s1.words;
-            gsap.set(words1, { opacity: 0 });
-        }
-        if (r2) {
-            const s2 = new SplitType(r2, { types: 'words' });
-            words2 = s2.words;
-            gsap.set(words2, { opacity: 0 });
-        }
+  if (hlSec && hlBrand) {
+    // 타이틀 글자들을 쪼개주어 GSAP가 인식할 수 있게 만듭니다.
+    var spBrand = new SplitType(hlBrand, { types: 'chars' });
 
-        const scrollDist = window.innerHeight * 5;
+    // 블랙 바탕에서 안 켜졌을 때의 어두운 회색 세팅
+    gsap.set(spBrand.chars, { color: '#1f232b' });
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: heroSec,
-                start: 'top top',
-                end: `+=${scrollDist}`,
-                scrub: 1.2,
-                pin: true,
-                pinSpacing: true,
-                anticipatePin: 1,
-            }
-        });
-
-        // 배경 카드 → 풀스크린
-        tl.to(visualImg, {
-            left: 0,
-            top: '50%',
-            width: '100%',
-            height: '100%',
-            borderRadius: 0,
-            ease: 'power2.inOut',
-            duration: 2
-        }, 0)
-        .to(visualDim, { opacity: 1, duration: 1.5 }, 0.5);
-
-        // 텍스트 1 등장
-        if (words1.length) {
-            tl.to(words1, {
-                opacity: 1,
-                ease: 'none',
-                stagger: 0.3,
-                duration: 0.1
-            }, 2);
-        }
-
-        // 텍스트 2 등장
-        if (words2.length) {
-            tl.to(words2, {
-                opacity: 1,
-                ease: 'none',
-                stagger: 0.2,
-                duration: 0.1
-            }, 3.5);
-        }
-
-        // 여백
-        tl.to({}, { duration: 1.5 });
-    }
-
-    // ══ 2번 섹션: 하이라이트 단어 점등 ══
-    const hlSec   = document.querySelector('.cn-highlight-sec');
-    const hlWords = document.querySelectorAll('.cn-highlight-sec .cn-word');
-
-    if (hlSec && hlWords.length) {
-        ScrollTrigger.create({
-            trigger: hlSec,
-            start: 'top top',
-            end: `+=${window.innerHeight * 3}`,
-            pin: true,
-            pinSpacing: true,
-            anticipatePin: 1,
-        });
-
-        hlWords.forEach((word, i) => {
-            const isAccent = word.classList.contains('cn-word-accent');
-            gsap.fromTo(word,
-                { color: 'rgba(255,255,255,0.12)' },
-                {
-                    color: isAccent ? '#44a9d1' : 'rgba(255,255,255,0.88)',
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: hlSec,
-                        start: `top+=${(i / hlWords.length) * window.innerHeight * 2} top`,
-                        end:   `top+=${((i + 1.2) / hlWords.length) * window.innerHeight * 2} top`,
-                        scrub: true,
-                    }
-                }
-            );
-        });
-    }
-
-    // ══ 사업분야 탭 전환 ══
-    const tabs   = document.querySelectorAll('.cn-biz-tab');
-    const panels = document.querySelectorAll('.cn-biz-panel');
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const idx = +tab.dataset.idx;
-            tabs.forEach(t => t.classList.remove('active'));
-            panels.forEach(p => p.classList.remove('active'));
-            tab.classList.add('active');
-            if (panels[idx]) panels[idx].classList.add('active');
-        });
+    var tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: hlSec,
+        start: 'top top',
+        end: '+=2500',
+        scrub: 1,
+        pin: true,
+        pinSpacing: true
+      }
     });
 
-    // ══ 일반 스크롤 reveal ══
-    document.querySelectorAll('.cn-reveal-elem').forEach(el => {
-        ScrollTrigger.create({
-            trigger: el,
-            start: 'top 85%',
-            onEnter: () => el.classList.add('visible')
-        });
-    });
+    // 쪼개진 글자들이 블랙 배경 위에서 선명한 흰색(#ffffff)으로 한 글자씩 채워집니다!
+    tl2.to(spBrand.chars, {
+      color: '#ffffff',
+      stagger: 0.1,
+      ease: 'none',
+      duration: 2.0
+    }, 0);
 
-})();
+    // 하단 서브 카피 문구 점등
+    var hlWords = document.querySelectorAll('.hl-sub .word');
+    hlWords.forEach(function (w, i) {
+      var isAccent = w.classList.contains('accent');
+      // 강조 단어는 원래 쓰시던 테일(#44a9d1) 컬러로, 일반 글자는 흰색으로 점등
+      tl2.to(w, {
+        color: isAccent ? '#44a9d1' : 'rgba(255, 255, 255, 0.85)',
+        ease: 'none',
+        duration: 0.5
+      }, 1.8 + (i * 0.15));
+    });
+    tl2.to({}, { duration: 1.5 });
+  }
+
+  // ── [3번 CEO 인사말 섹션 애니메이션 - 화이트 바탕] ──
+  var ceoSec = document.querySelector('.s-ceo');
+  var ceoTitle = document.querySelector('.ceo-title');
+  var ceoQuote = document.querySelector('.cn-ceo-quote');
+  var ceoBody = document.querySelector('.cn-ceo-body');
+  var ceoSig = document.querySelector('.cn-ceo-sig');
+  var imgBoxes = document.querySelectorAll('.s-ceo .img-box');
+
+  if (ceoSec && ceoTitle) {
+    var tl3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ceoSec,
+        start: 'top top',
+        end: '+=2500',
+        scrub: 1,
+        pin: true,
+        pinSpacing: true
+      }
+    });
+    tl3.to(ceoTitle, { backgroundPosition: '0% 0', ease: 'none', duration: 2.0 })
+      .to([ceoQuote, ceoBody, ceoSig], { opacity: 1, y: 0, stagger: 0.2, duration: 1.0 }, '-=0.5')
+      .to(imgBoxes, { opacity: 1, y: 0, stagger: 0.3, duration: 1.2 }, '-=0.8')
+      .to({}, { duration: 1.0 });
+  }
+
+
+  window.addEventListener('resize', function () {
+    ScrollTrigger.refresh();
+  });
+});

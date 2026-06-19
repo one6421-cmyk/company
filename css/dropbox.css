@@ -23,7 +23,9 @@ body {
   color: var(--text-primary);
   line-height: 1.7;
 }
-
+p, h1, h2, h3 {
+    word-break: keep-all;}
+  
 /* ── HERO ── */
 .hero {
   background: linear-gradient(135deg, #001A66 0%, #0033CC 55%, #0061FF 100%);
@@ -195,13 +197,14 @@ body {
 
 /* ── 비교표 ── */
 .compare-table {
-  width: 100%; border-collapse: collapse; font-size: 13px;
+  width: 100%; border-collapse: collapse; font-size: 14px;
   background: var(--surface); border-radius: var(--radius-lg);
-  overflow: hidden; border: 1px solid var(--border); margin-bottom: 32px;
+  overflow: hidden; border: 1px solid var(--border); margin: 45px 0;
 }
+
 .compare-table th {
-  background: var(--bg); padding: 14px 18px;
-  text-align: left; font-weight: 600; font-size: 13px;
+  background: #f4f4f4; padding: 14px 18px;
+  text-align: left; font-weight: 600; font-size: 14px;
   border-bottom: 1px solid var(--border); color: var(--text-primary);
 }
 .compare-table th:not(:first-child) { text-align: center; }
@@ -214,6 +217,10 @@ body {
 .compare-table .th-highlight { background: #E8F0FF; }
 .check { color: #16A34A; font-size: 16px; font-weight: 700; }
 .dash { color: #ccc; }
+.compare-section .wrapper {
+  padding-left: 0;
+  padding-right: 0;
+}
 
 /* ── CTA ── */
 .cta-section {

@@ -1,85 +1,116 @@
-(function () {
+window.addEventListener('DOMContentLoaded', function () {
+  gsap.registerPlugin(ScrollTrigger);
 
-  // 스크롤 페이드인
-  const fades = document.querySelectorAll('.ab2-fade');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('show'), i * 100);
-        io.unobserve(e.target);
+  var lenis = new Lenis({ lerp: 0.07 });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+  gsap.ticker.lagSmoothing(0);
+
+  // ── [1번 히어로 섹션 애니메이션 - 화이트 바탕] ──
+  var pinWrap = document.querySelector('.hero-pin-wrap');
+  var imgWrap = document.querySelector('.hero-img-wrap');
+  var dim = document.querySelector('.hero-dim');
+  var t1el = document.querySelector('.t1');
+  var t2el = document.querySelector('.t2');
+
+  if (pinWrap) {
+    var sp1 = new SplitType(t1el, { types: 'chars' });
+    var sp2 = new SplitType(t2el, { types: 'chars' });
+    gsap.set(sp1.chars, { opacity: 0, y: 50 });
+    gsap.set(sp2.chars, { opacity: 0, y: 50 });
+
+    var tl1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: pinWrap,
+        start: 'top top',
+        end: '+=3000',
+        scrub: 1,
+        pin: true
       }
     });
-  }, { threshold: 0.08 });
-  fades.forEach(el => io.observe(el));
-
-  // 매출 그래프 애니메이션
-  const bars = document.querySelectorAll('.ab2-bar-inner');
-  const vals = document.querySelectorAll('.ab2-bar-val');
-  const chartEl = document.getElementById('ab2-chart-bars');
-  let done = false;
-
-  if (chartEl) {
-    new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting && !done) {
-          done = true;
-          bars.forEach((bar, i) => {
-            setTimeout(() => {
-              bar.style.height = bar.dataset.height + '%';
-              if (vals[i]) vals[i].classList.add('show');
-            }, i * 180);
-          });
-        }
-      });
-    }, { threshold: 0.25 }).observe(chartEl);
+    tl1.to(imgWrap, { left: 0, top: 0, width: '100%', height: '100%', borderRadius: 0, ease: 'power1.inOut', duration: 2.0 }, 0)
+      .to(dim, { opacity: 0.5, duration: 1.5 }, 0.2)
+      .set(t1el, { opacity: 1 }, 2.0)
+      .to(sp1.chars, { opacity: 1, y: 0, ease: 'power3.out', stagger: 0.08, duration: 1.5 }, 2.2)
+      .to({}, { duration: 2.0 })
+      .to(sp1.chars, { opacity: 0, y: -50, ease: 'power3.in', stagger: 0.04, duration: 1.0 })
+      .set(t1el, { opacity: 0 })
+      .set(t2el, { opacity: 1 })
+      .to(sp2.chars, { opacity: 1, y: 0, ease: 'power3.out', stagger: 0.08, duration: 1.8 })
+      .to({}, { duration: 2.5 });
   }
 
-  // 숫자 카운팅 애니메이션
-  const statNums = document.querySelectorAll('.ab2-count');
-  const countIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const el = e.target;
-        const target = parseInt(el.dataset.target, 10);
-        const suffix = el.dataset.suffix || '';
-        let start = 0;
-        const duration = 1200;
-        const step = target / (duration / 16);
-        const timer = setInterval(() => {
-          start += step;
-          if (start >= target) { start = target; clearInterval(timer); }
-          el.textContent = Math.floor(start).toLocaleString() + suffix;
-        }, 16);
-        countIO.unobserve(el);
+  // ── [🔥 2번 브랜드 하이라이트 섹션 애니메이션 - 독독 블랙 모드] ──
+  var hlSec = document.querySelector('.s-hl');
+  var hlBrand = document.querySelector('.hl-brand');
+
+  if (hlSec && hlBrand) {
+    // 타이틀 글자들을 쪼개주어 GSAP가 인식할 수 있게 만듭니다.
+    var spBrand = new SplitType(hlBrand, { types: 'chars' });
+
+    // 블랙 바탕에서 안 켜졌을 때의 어두운 회색 세팅
+    gsap.set(spBrand.chars, { color: '#1f232b' });
+
+    var tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: hlSec,
+        start: 'top top',
+        end: '+=2500',
+        scrub: 1,
+        pin: true,
+        pinSpacing: true
       }
     });
-  }, { threshold: 0.5 });
-  statNums.forEach(el => countIO.observe(el));
 
-  // ── 컨설팅 프로세스: 원+선 함께 순차 등장 ──
-  const procWrap = document.querySelector('.ab2-biz-process');
-  if (procWrap) {
-    const items   = Array.from(procWrap.querySelectorAll('.ab2-proc-item'));
-    const line    = procWrap.querySelector('.proc-line');
-    const total   = items.length;        // 4
-    const STEP    = 750;                 // 각 단계 간격(ms)
-    // 선의 전체 범위는 14%~86% (72%), 각 구간: 72/3 = 24%
-    const lineSteps = [0, 24, 48, 72];  // 각 원 등장 시 선 너비(%)
+    // 쪼개진 글자들이 블랙 배경 위에서 선명한 흰색(#ffffff)으로 한 글자씩 채워집니다!
+    tl2.to(spBrand.chars, {
+      color: '#ffffff',
+      stagger: 0.1,
+      ease: 'none',
+      duration: 2.0
+    }, 0);
 
-    procWrap.classList.add('proc-started'); // 배경 트랙 표시
-
-    new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          items.forEach((item, i) => {
-            setTimeout(() => {
-              item.classList.add('proc-lit');
-              if (line) line.style.width = lineSteps[i] + '%';
-            }, i * STEP);
-          });
-        }
-      });
-    }, { threshold: 0.3 }).observe(procWrap);
+    // 하단 서브 카피 문구 점등
+    var hlWords = document.querySelectorAll('.hl-sub .word');
+    hlWords.forEach(function (w, i) {
+      var isAccent = w.classList.contains('accent');
+      // 강조 단어는 원래 쓰시던 테일(#44a9d1) 컬러로, 일반 글자는 흰색으로 점등
+      tl2.to(w, {
+        color: isAccent ? '#44a9d1' : 'rgba(255, 255, 255, 0.85)',
+        ease: 'none',
+        duration: 0.5
+      }, 1.8 + (i * 0.15));
+    });
+    tl2.to({}, { duration: 1.5 });
   }
 
-})();
+  // ── [3번 CEO 인사말 섹션 애니메이션 - 화이트 바탕] ──
+  var ceoSec = document.querySelector('.s-ceo');
+  var ceoTitle = document.querySelector('.ceo-title');
+  var ceoQuote = document.querySelector('.cn-ceo-quote');
+  var ceoBody = document.querySelector('.cn-ceo-body');
+  var ceoSig = document.querySelector('.cn-ceo-sig');
+  var imgBoxes = document.querySelectorAll('.s-ceo .img-box');
+
+  if (ceoSec && ceoTitle) {
+    var tl3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ceoSec,
+        start: 'top top',
+        end: '+=2500',
+        scrub: 1,
+        pin: true,
+        pinSpacing: true
+      }
+    });
+    tl3.to(ceoTitle, { backgroundPosition: '0% 0', ease: 'none', duration: 2.0 })
+      .to([ceoQuote, ceoBody, ceoSig], { opacity: 1, y: 0, stagger: 0.2, duration: 1.0 }, '-=0.5')
+      .to(imgBoxes, { opacity: 1, y: 0, stagger: 0.3, duration: 1.2 }, '-=0.8')
+      .to({}, { duration: 1.0 });
+  }
+
+
+  window.addEventListener('resize', function () {
+    ScrollTrigger.refresh();
+  });
+});

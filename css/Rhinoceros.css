@@ -8,7 +8,11 @@ body { font-family: 'Noto Sans KR', sans-serif; background: #f8f9fc; color: #1a1
   --radius-sm: 8px; --radius-md: 12px; --radius-lg: 18px;
   --shadow-sm: 0 1px 4px rgba(0,0,0,0.07); --shadow-md: 0 4px 20px rgba(0,0,0,0.09);
 }
+    
 
+p, h1, h2, h3 {
+    word-break: break-all;
+  overflow-wrap: break-word;}
 /* HERO */
 .hero { padding: 80px 2rem 70px; position: relative; overflow: hidden; }
 .hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 440px; height: 440px; border-radius: 50%; }
@@ -67,7 +71,7 @@ body { font-family: 'Noto Sans KR', sans-serif; background: #f8f9fc; color: #1a1
 .feature-item:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .feature-item-icon { width: 36px; height: 36px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
 .feature-item h4 { font-size: 13px; font-weight: 600; margin-bottom: 5px; }
-.feature-item p { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+.feature-item p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
 
 /* INCLUDE ROW */
 .include-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
@@ -87,11 +91,11 @@ body { font-family: 'Noto Sans KR', sans-serif; background: #f8f9fc; color: #1a1
 .industry-card:hover { box-shadow: var(--shadow-sm); }
 .industry-card div:first-child { font-size: 24px; margin-bottom: 6px; }
 .industry-card h4 { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
-.industry-card p { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+.industry-card p { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
 
 /* COMPARE TABLE */
-.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--surface); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); margin-bottom: 32px; }
-.compare-table th { background: var(--bg); padding: 13px 16px; text-align: left; font-weight: 600; font-size: 13px; border-bottom: 1px solid var(--border); }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 15px; background: var(--surface); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); margin-bottom: 32px; }
+.compare-table th { background: var(--bg); padding: 13px 16px; text-align: left; font-weight: 600; font-size: 16px; border-bottom: 1px solid var(--border); }
 .compare-table th:not(:first-child) { text-align: center; }
 .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: middle; }
 .compare-table tr:last-child td { border-bottom: none; }

@@ -23,7 +23,8 @@
       --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.07);
       --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.09);
     }
-
+p, h1, h2, h3 {
+    word-break: keep-all;}
     body {
       font-family: 'Noto Sans KR', sans-serif;
       background: var(--bg);
@@ -271,7 +272,14 @@
       color: var(--text-primary);
       box-shadow: var(--shadow-sm);
       max-width: 85%;
+     
+       
     }
+    .chat-bubble strong {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
 
     .chat-bubble.user {
       align-self: flex-end;

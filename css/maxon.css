@@ -1,0 +1,721 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --jb-red: #1A1A2E;
+  --jb-red-dark: #000000;
+  --jb-red-light: #F0F0F5;
+  --jb-dark: #1A1A2E;
+  --jb-purple: #3D3D5C;
+  --text-primary: #1a1a2e;
+  --text-secondary: #555;
+  --text-muted: #888;
+  --bg: #f8f9fc;
+  --surface: #fff;
+  --border: #e5e8ef;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.07);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.09);
+}
+
+p,
+h1,
+h2,
+h3 {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, #1A1A2E 0%, #2D1B4E 50%, #1A1A2E 100%);
+  padding: 80px 2rem 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 420px;
+  height: 420px;
+  background: rgba(232, 71, 76, 0.1);
+  border-radius: 50%;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-top: 4rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.hero h1 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: #FFB3AE;
+}
+
+.hero-desc {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+  max-width: 525px;
+  line-height: 1.8;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* hero-visual: 로고 크기와 무관하게 항상 고정 크기 박스 유지 */
+.hero-visual {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  text-align: center;
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+/* 로고 이미지·SVG 모두 140×140으로 고정 */
+.hero-visual img,
+.hero-visual>svg {
+  width: 160px !important;
+  height: 140px !important;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.hero-visual-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+
+.hero-visual-sub {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    display: none;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.5s ease both;
+}
+
+.delay-2 {
+  animation-delay: 0.2s;
+}
+
+/* ── WRAPPER ── */
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── PRODUCT SECTION ── */
+.product-section {
+  padding: 72px 0;
+}
+
+.product-section+.product-section {
+  border-top: 1px solid var(--border);
+}
+
+/* ── PRODUCT HERO ── */
+.product-hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.product-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--jb-red);
+  margin-bottom: 10px;
+}
+
+.product-title {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.product-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  max-width: 560px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* 제품 배지 */
+.product-badge {
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  text-align: center;
+  min-width: 160px;
+  flex-shrink: 0;
+}
+
+.product-badge-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.product-badge-name {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.product-badge-sub {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* ── INCLUDE CHIPS ── */
+.include-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.include-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+}
+
+.include-chip svg {
+  flex-shrink: 0;
+}
+
+/* ── FEATURE GRID ── */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.feature-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.feature-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.feature-item-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.feature-item h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.feature-item p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ── APP LIST (IDE 카드) ── */
+.app-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+  align-items: stretch;
+}
+
+/* 이번 페이지 전용 보강분 */
+.app-card-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.app-card-tag {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.app-list {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.section-label {
+  margin-top: 56px;
+}
+
+.product-section .section-label:first-of-type {
+  margin-top: 0;
+}
+
+.industry-grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
+}
+
+.industry-card h4 {
+  font-size: 14px;
+}
+
+.industry-card p {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.feature-item-icon-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.feature-item-icon-group img {
+  width: 40px;
+  height: auto;
+}
+
+.app-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: box-shadow 0.15s;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+.app-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.app-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.app-card-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.app-card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  margin-bottom: 2px;
+}
+
+/* ── 플랜 카드 ── */
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.plan-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  position: relative;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.plan-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.plan-card.featured {
+  border-color: var(--jb-red);
+  box-shadow: 0 0 0 3px rgba(232, 71, 76, 0.08);
+}
+
+.plan-badge-label {
+  position: absolute;
+  top: -11px;
+  left: 24px;
+  background: var(--jb-red);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+
+.plan-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.plan-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.plan-target {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.plan-storage {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--jb-red);
+  margin-bottom: 4px;
+}
+
+.plan-storage-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.plan-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.plan-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.plan-features li::before {
+  content: '✓';
+  color: #16A34A;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── 비교표 ── */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+
+.compare-table th {
+  background: var(--bg);
+  padding: 15px 18px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.compare-table th:not(:first-child) {
+  text-align: center;
+}
+
+.compare-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.compare-table tbody tr:hover td {
+  background: #fafbff;
+}
+
+.compare-table tr:last-child td {
+  border-bottom: none;
+}
+
+.compare-table td:not(:first-child) {
+  text-align: center;
+}
+
+.compare-table .th-highlight {
+  background: var(--jb-red-light);
+}
+
+.check {
+  color: #16A34A;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.dash {
+  color: #ddd;
+}
+
+/* ── 활용분야 그리드 ── */
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.industry-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  text-align: center;
+  transition: box-shadow 0.15s;
+}
+
+.industry-card:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.industry-card div:first-child {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.industry-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.industry-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── 소제목 레이블 ── */
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+@media (max-width: 768px) {
+  .product-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .product-badge {
+    display: none;
+  }
+
+  .app-list {
+    grid-template-columns: 1fr;
+  }
+
+  .compare-table {
+    font-size: 12px;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    padding: 10px 12px;
+  }
+}
+
+/* ── 요금제 카드 보강 (아이콘 리스트, CTA) ── */
+.plan-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.plan-features.icon-list li {
+  align-items: center;
+}
+
+.plan-features.icon-list li::before {
+  content: none;
+}
+
+.plan-features.icon-list li img {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.plan-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.plan-cta-btn {
+  background: var(--jb-dark);
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.plan-cta-btn:hover {
+  background: var(--jb-red);
+}
+
+.plan-cta-link {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: underline;
+}

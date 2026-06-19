@@ -66,7 +66,9 @@ body {
   font-size: 16px; color: rgba(255,255,255,0.85);
   margin-bottom: 2rem; max-width: 520px; line-height: 1.8;
 }
-
+p, h1, h2, h3 {
+    word-break: break-all;
+  overflow-wrap: break-word;}
 /* hero-visual 고정 박스 */
 .hero-visual {
   background: rgba(255,255,255,0.1);
@@ -138,8 +140,10 @@ body {
 /* ── APP LIST (플랫폼 카드) ── */
 .app-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 16px; margin-bottom: 40px;
+  /* 핵심 수정: 최소 너비를 240px -> 280px로 넓혀서 자연스럽게 3열(PC 기준) 위주로 배치되도록 유도합니다 */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px; 
+  margin-bottom: 40px;
   align-items: stretch;
 }
 .app-card {
@@ -147,35 +151,38 @@ body {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 20px;
-  display: flex; gap: 14px; align-items: flex-start;
+  display: flex; 
+  gap: 16px;
+  align-items: flex-start;
   transition: box-shadow 0.15s;
   min-width: 0;
 }
 .app-card:hover { box-shadow: var(--shadow-md); }
 .app-card > div:last-child { flex: 1; min-width: 0; }
 .app-card-icon {
-  width: 44px; height: 44px; border-radius: 10px;
+  width: 46px; height: 44px; border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; font-size: 9px; font-weight: 700; color: #fff;
+  flex-shrink: 0; font-size: 10px; font-weight: 700; color: #fff;
   text-align: center; line-height: 1.3;
 }
-.app-card-name { font-size: 14px; font-weight: 600; margin-bottom: 5px; }
+.app-card-name { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
 .app-card-desc {
   font-size: 13px; color: var(--text-secondary); line-height: 1.6;
-  word-break: break-all; overflow-wrap: break-word;
+  word-break: keep-all; overflow-wrap: break-word;
 }
 
 /* ── FEATURE GRID ── */
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* 핵심 수정: 최소 너비를 200px -> 300px로 대폭 넓혀 4열에서 여유 있는 3열 구조로 변경합니다 */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px; margin-bottom: 40px;
 }
 .feature-item {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 22px;
+  padding: 24px;
   transition: box-shadow 0.15s, transform 0.15s;
 }
 .feature-item:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
@@ -217,7 +224,7 @@ body {
 .plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; padding-left: 0; }
 .plan-features li {
   display: flex; align-items: flex-start; gap: 8px;
-  font-size: 13px; color: var(--text-secondary); line-height: 1.5;
+  font-size: 14px; color: var(--text-secondary); line-height: 1.5;
   word-break: break-all;
 }
 .plan-features li::before {
@@ -240,13 +247,13 @@ body {
 .compare-table td {
   padding: 14px 18px;
   border-bottom: 1px solid var(--border);
-  color: var(--text-secondary); vertical-align: middle; font-size: 13px;
+  color: var(--text-secondary); vertical-align: middle; font-size: 14px;
 }
 .compare-table tbody tr:hover td { background: #fffaf7; }
 .compare-table tr:last-child td { border-bottom: none; }
 .compare-table td:not(:first-child) { text-align: center; }
 .compare-table .th-highlight { background: var(--dx-orange-light); }
-.check { color: #16A34A; font-size: 16px; font-weight: 700; }
+.check { color: #000000; font-size: 16px; font-weight: 700; }
 .dash { color: #ddd; }
 
 /* ── 활용분야 ── */
