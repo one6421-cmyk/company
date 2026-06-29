@@ -8,6 +8,14 @@ body { font-family: 'Noto Sans KR', sans-serif; background: #f8f9fc; color: #1a1
   --radius-sm: 8px; --radius-md: 12px; --radius-lg: 18px;
   --shadow-sm: 0 1px 4px rgba(0,0,0,0.07); --shadow-md: 0 4px 20px rgba(0,0,0,0.09);
 }
+p,
+h1,
+h2,
+h3 {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
 
 /* ── HERO (왼쪽 섹션 및 전체 스타일 원본 상태 100% 유지) ── */
 .hero { padding: 80px 2rem 70px; position: relative; overflow: hidden; }
@@ -60,7 +68,7 @@ body { font-family: 'Noto Sans KR', sans-serif; background: #f8f9fc; color: #1a1
 .section-header { margin-bottom: 40px; }
 .section-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
 .section-title { font-size: clamp(20px, 3vw, 32px); font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
-.section-desc { font-size: 14px; color: var(--text-secondary); max-width: 620px; line-height: 1.8; }
+.section-desc { font-size: 15px; color: var(--text-secondary); max-width: 620px; line-height: 1.8; }
 
 /* FEATURE GRID */
 .feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; margin-bottom: 32px; }
@@ -75,12 +83,12 @@ body { font-family: 'Noto Sans KR', sans-serif; background: #f8f9fc; color: #1a1
 .include-chip { display: flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; border: 1px solid var(--border); background: var(--surface); color: var(--text-secondary); }
 
 /* APP LIST */
-.app-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-bottom: 32px; }
-.app-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px; display: flex; gap: 14px; align-items: flex-start; transition: box-shadow 0.15s; }
+.app-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-bottom: 32px; }
+.app-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; display: flex; gap: 14px; align-items: flex-start; transition: box-shadow 0.15s; word-break: break-all; overflow-wrap: break-word; min-width: 0; }
 .app-card:hover { box-shadow: var(--shadow-md); }
 .app-card-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 9px; font-weight: 700; color: #fff; }
 .app-card-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
-.app-card-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+.app-card-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
 
 /* INDUSTRY GRID */
 .industry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin-bottom: 32px; }

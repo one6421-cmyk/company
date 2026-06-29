@@ -17,6 +17,13 @@
   --shadow-sm: 0 1px 4px rgba(0,0,0,0.07);
   --shadow-md: 0 4px 20px rgba(0,0,0,0.09);
 }
+p,
+h1,
+h2,
+h3 {
+  word-break: keep-all;
+
+}
 
 body {
   font-family: 'Noto Sans KR', sans-serif;

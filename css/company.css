@@ -36,11 +36,6 @@ body {
 }
 
 /* ── 1번 히어로 섹션 (화이트 바탕 + 먹색 글자) ── */
-.hero-pin-wrap {
-    position: relative;
-    z-index: 1;
-}
-
 .s-hero {
     position: relative;
     width: 100%;
@@ -50,13 +45,13 @@ body {
 }
 
 .hero-img-wrap {
-    
+
     position: absolute;
-    left: 20px;
-    top: calc(50vh - 38vh); /* 28.2vh → 더 작은 값으로 */
-    width: calc(100% - 40px);
-    height: 56.4vh;
-    border-radius: 43px;
+    left: 0;
+    top: 0 ;
+    width: 100%;
+    height: 100%;
+    border-radius: 0; /* 화면 끝까지 꽉 채우므로 모서리도 각지게 */
     overflow: hidden;
     will-change: left, top, width, height, border-radius;
 }
@@ -71,15 +66,19 @@ body {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.9);
-    opacity: 0;
+    opacity: 0.45;
 }
 
 .hero-text {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
     text-align: center;
     pointer-events: none;
     z-index: 5;
@@ -87,20 +86,25 @@ body {
 
 .hero-text .t1,
 .hero-text .t2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) !important;
+    position: static;
+    transform: none !important;
     width: 100%;
-    font-size: 3.5vw;
-    font-weight: 700;
     color: #ffffff;
-    /* 화이트 모드 맞춤 선명한 블랙 */
     display: block !important;
     text-align: center;
     white-space: nowrap;
-    opacity: 0;
+    opacity: 1;
     letter-spacing: -0.02em;
+}
+
+.hero-text .t1 {
+    font-size: 3.5vw;
+    font-weight: 700;
+}
+
+.hero-text .t2 {
+    font-size: 1.6vw;
+    font-weight: 500;
 }
 
 /* ── 2번 브랜드 하이라이트 섹션 (🔥 여기만 완벽한 블랙!) ── */
@@ -128,8 +132,7 @@ body {
     text-align: center;
     letter-spacing: 0.03em;
     margin-bottom: 2.5rem;
-    color: #1f232b;
-    /* 기본 상태 안 켜진 어두운 글자색 */
+    color: #ffffff;
 }
 
 .hl-brand .char {
@@ -150,8 +153,11 @@ body {
     font-weight: 500;
     margin: 0 6px;
     display: inline-block;
-    color: rgba(255, 255, 255, 0.15);
-    /* 기본 상태 어두운 자막 */
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.hl-sub .word.accent {
+    color: var(--teal);
 }
 
 /* ── 3번 CEO 인사말 섹션 (화이트 바탕 + 먹색 글자 + 일렬 정렬) ── */
@@ -190,13 +196,7 @@ body {
     line-height: 1.4;
     margin-bottom: 4.5rem;
     letter-spacing: -0.02em;
-    /* 스크롤 시 연회색(#e2e8f0)에서 포인트 블루(#2a54a8)로 그라데이션 채우기 */
-    background: linear-gradient(to right, #2a54a8 50%, #e2e8f0 50%);
-    background-size: 200% 100%;
-    background-position: 100% 0;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: background-position 0.1s linear;
+    color: #2a54a8;
 }
 
 .cn-ceo-quote {
@@ -206,10 +206,6 @@ body {
     /* 매칭 블루 포인트 */
     line-height: 1.6;
     margin-bottom: 2rem;
-
-
-    opacity: 0;
-    transform: translateY(20px);
 }
 
 .cn-ceo-body p {
@@ -220,8 +216,6 @@ body {
 }
 
 .cn-ceo-body {
-    opacity: 0;
-    transform: translateY(20px);
 }
 
 .cn-ceo-sig {
@@ -230,8 +224,6 @@ body {
     gap: 12px;
     display: flex;
     /* 대표이사 이름 일렬 가로정렬 구조 완료 */
-    opacity: 0;
-    transform: translateY(20px);
 }
 
 .cn-ceo-sig .sig-title {
@@ -261,8 +253,6 @@ body {
     border-radius: 20px;
     overflow: hidden;
     height: 100%;
-    opacity: 0;
-    transform: translateY(60px);
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -279,7 +269,7 @@ body {
 
 .img2 {
     flex: 2;
-    height: 70%;
+    height: 80%;
     transition: all 0.8s ease 0.2s;
     margin-top: 40px;
 }
@@ -604,16 +594,16 @@ body {
 }
 
 .mq-right {
-    animation: marquee-right 72s linear infinite;
+    animation: marquee-right 150s linear infinite;
 
 }
 
 .mq-left {
-    animation: marquee-left 60s linear infinite;
+    animation: marquee-left 130s linear infinite;
 }
 
 .mq-row-3 .mq-right {
-    animation-duration: 36s;
+    animation-duration: 75s;
 }
 
 /* 호버 시 일시정지 */

@@ -24,6 +24,13 @@
       color: var(--text-primary);
       line-height: 1.7;
     }
+    p,
+h1,
+h2,
+h3 {
+  word-break: keep-all;
+
+}
 
     .wrapper { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
